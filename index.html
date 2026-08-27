@@ -4,57 +4,145 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Pendidik - SDN Seddur 1 Pakong</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #3b82f6;
+            --accent: #f59e0b;
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 750px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid rgba(226, 232, 240, 0.8);
         }
+
         header {
-            background: #2c3e50;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #fff;
-            padding: 30px;
+            padding: 50px 30px 40px;
             text-align: center;
-            border-radius: 8px;
+            position: relative;
         }
+
+        /* Styling Area Foto Profil */
+        .profile-pic-container {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 4px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #e2e8f0; /* Fallback warna jika foto belum dimuat */
+        }
+
+        header h1 { 
+            font-size: 26px; 
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+        }
+
         main {
-            background: #fff;
-            padding: 30px;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 40px;
         }
-        h1 { margin: 0 0 10px 0; font-size: 24px; }
-        h2 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 5px; }
+
+        h2 { 
+            font-size: 20px;
+            color: var(--primary); 
+            border-bottom: 2px solid #f1f5f9; 
+            padding-bottom: 10px; 
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        main p {
+            margin-bottom: 20px;
+            color: #334155;
+            font-size: 16px;
+        }
+
+        strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
         footer {
             text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #777;
+            padding: 25px;
+            background-color: #f8fafc;
+            font-size: 13px;
+            color: var(--text-muted);
+            border-top: 1px solid #f1f5f9;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 15px; }
+            main { padding: 25px 20px; }
+            header { padding: 40px 20px 30px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Selamat Datang di Blog Pendidikan</h1>
-        <p>Catatan dan Refleksi Pendidik SDN Seddur 1 Pakong</p>
-    </header>
+    <div class="container">
+        <header>
+            <!-- Ganti atribut src dengan link foto profil Anda (atau nama file gambar lokal misal: foto.jpg) -->
+            <div class="profile-pic-container">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Foto Profil Rusdiyanto" class="profile-pic">
+            </div>
+            <h1>Selamat Datang di Blog Pendidikan</h1>
+            <p>Catatan dan Refleksi Pendidik SDN Seddur 1 Pakong</p>
+        </header>
 
-    <main>
-        <h2>Profil Singkat</h2>
-        <p>Seorang pendidik berdedikasi yang memiliki pengalaman mengajar lintas jenjang, mulai dari satuan pendidikan menengah hingga dasar. Saat ini aktif mengabdi sebagai guru di <strong>SDN Seddur 1 Pakong</strong>, membawa latar belakang pengalaman kuat sebagai pengampu mata pelajaran Matematika di <strong>SMPN 1 Larangan</strong>.</p>
-        
-        <p>Perjalanan karier ini mencerminkan komitmen tinggi terhadap peningkatan kualitas pembelajaran, khususnya dalam membangun fondasi pemikiran logis dan numerasi peserta didik sejak dini. Dengan pendekatan yang telaten dan adaptif, pengalaman mengajarnya di tingkat sekolah menengah dipadukan secara selaras untuk mendampingi tumbuh kembang siswa di tingkat sekolah dasar.</p>
-    </main>
+        <main>
+            <h2>Profil Singkat</h2>
+            <p>Seorang pendidik berdedikasi yang memiliki pengalaman mengajar lintas jenjang, mulai dari satuan pendidikan menengah hingga dasar. Saat ini aktif mengabdi sebagai guru di <strong>SDN Seddur 1 Pakong</strong>, membawa latar belakang pengalaman kuat sebagai pengampu mata pelajaran Matematika di <strong>SMPN 1 Larangan</strong>.</p>
+            
+            <p>Perjalanan karier ini mencerminkan komitmen tinggi terhadap peningkatan kualitas pembelajaran, khususnya dalam membangun fondasi pemikiran logis dan numerasi peserta didik sejak dini. Dengan pendekatan yang telaten dan adaptif, pengalaman mengajarnya di tingkat sekolah menengah dipadukan secara selaras untuk mendampingi tumbuh kembang siswa di tingkat sekolah dasar.</p>
+        </main>
 
-    <footer>
-        <p>&copy; 2026 SDN Seddur 1 Pakong. All Rights Reserved.</p>
-    </footer>
+        <footer>
+            <p>&copy; 2026 SDN Seddur 1 Pakong. All Rights Reserved.</p>
+        </footer>
+    </div>
 
 </body>
 </html>

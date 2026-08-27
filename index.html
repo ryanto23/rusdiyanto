@@ -67,7 +67,7 @@
             position: relative;
         }
 
-        /* Menu Navigasi Blog Interaktif */
+        /* Menu Navigasi Utama */
         .nav-menu {
             display: flex;
             justify-content: center;
@@ -93,6 +93,39 @@
             background: var(--accent);
             color: #1e293b;
             transform: translateY(-2px);
+            font-weight: 600;
+        }
+
+        /* Sub-menu khusus Materi Ajar */
+        .sub-menu {
+            display: none;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sub-menu.show {
+            display: flex;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .sub-btn {
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 400;
+            padding: 4px 12px;
+            background: rgba(15, 23, 42, 0.3);
+            border-radius: 15px;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.2s;
+        }
+
+        .sub-btn:hover, .sub-btn.active {
+            background: #ffffff;
+            color: var(--primary);
             font-weight: 600;
         }
 
@@ -198,14 +231,20 @@
 
     <div class="container">
         <header>
-            <!-- Menu Navigasi Blog Interaktif -->
+            <!-- Menu Navigasi Blog Utama -->
             <nav class="nav-menu">
                 <button class="nav-btn active" onclick="switchTab('beranda')">Beranda</button>
                 <button class="nav-btn" onclick="switchTab('profil')">Profil</button>
-                <button class="nav-btn" onclick="switchTab('materi')">Materi Ajar</button>
+                <button class="nav-btn" onclick="toggleMateriSubMenu('materi-utama')">Materi Ajar</button>
                 <button class="nav-btn" onclick="switchTab('artikel')">Artikel</button>
                 <button class="nav-btn" onclick="switchTab('kontak')">Kontak</button>
             </nav>
+
+            <!-- Sub-menu khusus bagian Materi Ajar -->
+            <div id="materiSubMenu" class="sub-menu">
+                <button class="sub-btn active" onclick="switchTab('materi-utama')">Materi & Pembelajaran</button>
+                <button class="sub-btn" onclick="switchTab('perangkat-ajar')">Perangkat Ajar</button>
+            </div>
 
             <div class="profile-pic-container">
                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Foto Profil Rusdiyanto" class="profile-pic">
@@ -229,14 +268,25 @@
                 <p>Perjalanan karier ini mencerminkan komitmen tinggi terhadap peningkatan kualitas pembelajaran, khususnya dalam membangun fondasi pemikiran logis dan numerasi peserta didik sejak dini.</p>
             </div>
 
-            <!-- 3. Menu Materi Ajar -->
-            <div id="materi" class="tab-content">
+            <!-- 3A. Menu Utama Materi Ajar -->
+            <div id="materi-utama" class="tab-content">
                 <h2>Materi Ajar & Pembelajaran</h2>
                 <p>Kumpulan bahan ajar, modul latihan, serta media pendukung penunjang kurikulum:</p>
                 <ul>
                     <li><strong>Matematika Dasar & Numerasi SD:</strong> Konsep dasar hitung, pecahan, dan logika matematika kelas awal hingga tinggi.</li>
                     <li><strong>Media Pembelajaran Interaktif:</strong> Alat peraga digital dan lembar kerja peserta didik (LKPD) mandiri.</li>
                     <li><strong>Bank Soal Latihan:</strong> Kumpulan latihan soal evaluasi harian dan persiapan asesmen sekolah.</li>
+                </ul>
+            </div>
+
+            <!-- 3B. Sub-menu Perangkat Ajar -->
+            <div id="perangkat-ajar" class="tab-content">
+                <h2>Perangkat Ajar Guru</h2>
+                <p>Dokumen administrasi dan perangkat pendukung pelaksanaan kurikulum di kelas:</p>
+                <ul>
+                    <li><strong>Modul Ajar / RPP:</strong> Rancangan kegiatan harian berbasis Kurikulum Merdeka yang interaktif dan berpusat pada siswa.</li>
+                    <li><strong>Capaian Pembelajaran (CP) & Alur Tujuan Pembelajaran (ATP):</strong> Peta jalan kompetensi peserta didik per fase.</li>
+                    <li><strong>Asesmen & Lembar Penilaian:</strong> Instrumen formatif dan sumatif untuk mengukur ketercapaian belajar siswa.</li>
                 </ul>
             </div>
 
@@ -268,20 +318,42 @@
         </footer>
     </div>
 
-    <!-- Script Tab Navigasi & Animasi 3D -->
+    <!-- Script Tab Navigasi & Sub-menu -->
     <script>
         function switchTab(tabId) {
             // Sembunyikan semua konten tab
             const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.content = content.classList.remove('active'));
             contents.forEach(content => content.classList.remove('active'));
 
-            // Matikan semua status aktif tombol menu
-            const buttons = document.querySelectorAll('.nav-btn');
+            // Matikan semua status aktif tombol utama & sub-menu
+            const buttons = document.querySelectorAll('.nav-btn, .sub-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
 
-            // Tampilkan tab yang diklik dan aktifkan tombolnya
+            // Tampilkan tab tujuan
             document.getElementById(tabId).classList.add('active');
+
+            // Tandai tombol yang sesuai sebagai aktif
             event.currentTarget.classList.add('active');
+
+            // Jika yang diklik adalah bagian dari materi ajar, pastikan tombol utama Materi Ajar ikut menyala
+            if(tabId === 'materi-utama' || tabId === 'perangkat-ajar') {
+                // Cari tombol utama Materi Ajar
+                const mainMateriBtn = document.querySelector('.nav-menu button:nth-child(3)');
+                if(mainMateriBtn) mainMateriBtn.classList.add('active');
+                
+                // Nyalakan tombol sub-menu yang diklik
+                event.currentTarget.classList.add('active');
+            }
+        }
+
+        function toggleMateriSubMenu(defaultTabId) {
+            // Tampilkan atau sembunyikan sub-menu perangkat ajar
+            const subMenu = document.getElementById('materiSubMenu');
+            subMenu.classList.toggle('show');
+
+            // Pindah langsung ke halaman utama materi
+            switchTab(defaultTabId);
         }
 
         // Animasi 3D Partikel Latar Belakang

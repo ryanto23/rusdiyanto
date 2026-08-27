@@ -212,6 +212,36 @@
             background: var(--primary);
         }
 
+        /* Tambahan Styling untuk Tombol Kontak & Peta */
+        .contact-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+        }
+        .whatsapp-btn:hover {
+            background: #1ebe5d;
+        }
+
+        .email-btn {
+            background: var(--primary);
+        }
+        .email-btn:hover {
+            background: var(--secondary);
+        }
+
+        .map-container {
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
         strong {
             color: var(--primary);
             font-weight: 600;
@@ -313,7 +343,7 @@
                     <a href="https://buku.kemendikdasmen.go.id/katalog" class="link-btn">Baca Artikel &rarr;</a>
                 </div>
 
-                 <h3>3. Perangkat Ajar Pembelajaran Mendalam (Deep Learning)Jenjang SD, SMP dan SMA</h3>
+                 <h3>3. Perangkat Ajar Pembelajaran Mendalam (Deep Learning) Jenjang SD, SMP dan SMA</h3>
                 <div class="article-card">
                     <h4> Perangkat Kelas 1</h4>
                     <a href="https://s.id/Perangkat-Kelas-1" class="link-btn">Baca Artikel &rarr;</a>
@@ -363,11 +393,22 @@
                     <li><strong>Email:</strong> (Email Resmi / Pribadi Anda)</li>
                     <li><strong>Media Sosial / Platform Guru:</strong> PMM / Platform Merdeka Mengajar</li>
                 </ul>
+
+                <!-- Tombol Tautan WhatsApp & Email -->
+                <div class="contact-buttons">
+                    <a href="https://wa.me/62899910186?text=Halo%20Pak%20Rusdiyanto,%20saya%20ingin%20berdiskusi%20seputar%20pendidikan." target="_blank" class="link-btn whatsapp-btn">Chat WhatsApp &rarr;</a>
+                    <a href="r.yanto23@yahoo.com" class="link-btn email-btn">Kirim Email &rarr;</a>
+                </div>
+
+                <!-- Peta Google Maps Interaktif Lokasi SDN Seddur 1 Pakong -->
+                <div class="map-container">
+                    <iframe width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.985060856956!2d113.5855!3d-7.0189!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMDEnMguMSJTIDExM8KwMzUnMDcuOCJF!5e0!3m2!1sid!2sid!4v1620000000000"></iframe>
+                </div>
             </div>
         </main>
 
         <footer>
-            <p>&copy; 2026 SDN Seddur 1 Pakong. All Rights Reserved.</p>
+            <p>&copy; 2026 Rusdiyanto, S.Pd. All Rights Reserved.</p>
         </footer>
     </div>
 

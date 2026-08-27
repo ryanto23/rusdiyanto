@@ -10,7 +10,7 @@
             --primary: #1e3a8a;
             --secondary: #3b82f6;
             --accent: #f59e0b;
-            --card-bg: rgba(255, 255, 255, 0.9);
+            --card-bg: rgba(255, 255, 255, 0.92);
             --text-main: #1e293b;
             --text-muted: #64748b;
         }
@@ -67,16 +67,16 @@
             position: relative;
         }
 
-        /* Menu Navigasi Blog */
+        /* Menu Navigasi Blog Interaktif */
         .nav-menu {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             margin-bottom: 25px;
             flex-wrap: wrap;
         }
 
-        .nav-menu a {
+        .nav-btn {
             color: #ffffff;
             text-decoration: none;
             font-size: 13px;
@@ -86,12 +86,14 @@
             border-radius: 20px;
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
         }
 
-        .nav-menu a:hover {
+        .nav-btn:hover, .nav-btn.active {
             background: var(--accent);
             color: #1e293b;
             transform: translateY(-2px);
+            font-weight: 600;
         }
 
         /* Styling Area Foto Profil */
@@ -130,6 +132,21 @@
             padding: 35px 40px;
         }
 
+        /* Konten Tab Menu */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         h2 { 
             font-size: 18px;
             color: var(--primary); 
@@ -139,10 +156,18 @@
             font-weight: 600;
         }
 
-        main p {
+        main p, main ul {
             margin-bottom: 18px;
             color: #334155;
             font-size: 15px;
+        }
+
+        main ul {
+            padding-left: 20px;
+        }
+
+        main li {
+            margin-bottom: 8px;
         }
 
         strong {
@@ -173,13 +198,13 @@
 
     <div class="container">
         <header>
-            <!-- Menu Navigasi Blog -->
+            <!-- Menu Navigasi Blog Interaktif -->
             <nav class="nav-menu">
-                <a href="#">Beranda</a>
-                <a href="#">Profil</a>
-                <a href="#">Materi Ajar</a>
-                <a href="#">Artikel</a>
-                <a href="#">Kontak</a>
+                <button class="nav-btn active" onclick="switchTab('beranda')">Beranda</button>
+                <button class="nav-btn" onclick="switchTab('profil')">Profil</button>
+                <button class="nav-btn" onclick="switchTab('materi')">Materi Ajar</button>
+                <button class="nav-btn" onclick="switchTab('artikel')">Artikel</button>
+                <button class="nav-btn" onclick="switchTab('kontak')">Kontak</button>
             </nav>
 
             <div class="profile-pic-container">
@@ -190,10 +215,52 @@
         </header>
 
         <main>
-            <h2>Profil Singkat</h2>
-            <p>Seorang pendidik berdedikasi yang memiliki pengalaman mengajar lintas jenjang, mulai dari satuan pendidikan menengah hingga dasar. Saat ini aktif mengabdi sebagai guru di <strong>SDN Seddur 1 Pakong</strong>, membawa latar belakang pengalaman kuat sebagai pengampu mata pelajaran Matematika di <strong>SMPN 1 Larangan</strong>.</p>
-            
-            <p>Perjalanan karier ini mencerminkan komitmen tinggi terhadap peningkatan kualitas pembelajaran, khususnya dalam membangun fondasi pemikiran logis dan numerasi peserta didik sejak dini. Dengan pendekatan yang telaten dan adaptif, pengalaman mengajarnya di tingkat sekolah menengah dipadukan secara selaras untuk mendampingi tumbuh kembang siswa di tingkat sekolah dasar.</p>
+            <!-- 1. Menu Beranda -->
+            <div id="beranda" class="tab-content active">
+                <h2>Beranda Utama</h2>
+                <p>Selamat datang di ruang digital pengabdian saya. Blog ini dikelola sebagai wadah dokumentasi kegiatan belajar-mengajar, refleksi pendidikan, serta media berbagi sumber belajar interaktif bagi siswa dan rekan-rekan pendidik.</p>
+                <p>Mari bersama-sama memajukan kualitas pendidikan dasar melalui inovasi pembelajaran yang menyenangkan dan bermakna.</p>
+            </div>
+
+            <!-- 2. Menu Profil -->
+            <div id="profil" class="tab-content">
+                <h2>Profil Singkat</h2>
+                <p>Seorang pendidik berdedikasi yang memiliki pengalaman mengajar lintas jenjang, mulai dari satuan pendidikan menengah hingga dasar. Saat ini aktif mengabdi sebagai guru di <strong>SDN Seddur 1 Pakong</strong>, membawa latar belakang pengalaman kuat sebagai pengampu mata pelajaran Matematika di <strong>SMPN 1 Larangan</strong>.</p>
+                <p>Perjalanan karier ini mencerminkan komitmen tinggi terhadap peningkatan kualitas pembelajaran, khususnya dalam membangun fondasi pemikiran logis dan numerasi peserta didik sejak dini.</p>
+            </div>
+
+            <!-- 3. Menu Materi Ajar -->
+            <div id="materi" class="tab-content">
+                <h2>Materi Ajar & Pembelajaran</h2>
+                <p>Kumpulan bahan ajar, modul latihan, serta media pendukung penunjang kurikulum:</p>
+                <ul>
+                    <li><strong>Matematika Dasar & Numerasi SD:</strong> Konsep dasar hitung, pecahan, dan logika matematika kelas awal hingga tinggi.</li>
+                    <li><strong>Media Pembelajaran Interaktif:</strong> Alat peraga digital dan lembar kerja peserta didik (LKPD) mandiri.</li>
+                    <li><strong>Bank Soal Latihan:</strong> Kumpulan latihan soal evaluasi harian dan persiapan asesmen sekolah.</li>
+                </ul>
+            </div>
+
+            <!-- 4. Menu Artikel -->
+            <div id="artikel" class="tab-content">
+                <h2>Artikel & Refleksi Pendidik</h2>
+                <p>Catatan pemikiran seputar dunia pendidikan dan pengalaman di ruang kelas:</p>
+                <ul>
+                    <li>Strategi Menumbuhkan Minat Belajar Matematika Sejak Usia Dini.</li>
+                    <li>Transisi Pembelajaran dari Sekolah Menengah ke Sekolah Dasar: Tantangan dan Solusi Adaptif.</li>
+                    <li>Refleksi Penggunaan Metode Pembelajaran Berpusat pada Siswa.</li>
+                </ul>
+            </div>
+
+            <!-- 5. Menu Kontak -->
+            <div id="kontak" class="tab-content">
+                <h2>Hubungi Saya</h2>
+                <p>Terhubung dengan saya untuk keperluan diskusi seputar pendidikan, kolaborasi, maupun kritik dan saran yang membangun:</p>
+                <ul>
+                    <li><strong>Instansi:</strong> SDN Seddur 1 Pakong, Kec. Pakong, Kab. Pamekasan</li>
+                    <li><strong>Email:</strong> (Email Resmi / Pribadi Anda)</li>
+                    <li><strong>Media Sosial / Platform Guru:</strong> PMM / Platform Merdeka Mengajar</li>
+                </ul>
+            </div>
         </main>
 
         <footer>
@@ -201,8 +268,23 @@
         </footer>
     </div>
 
-    <!-- Script Animasi 3D Partikel Bergerak -->
+    <!-- Script Tab Navigasi & Animasi 3D -->
     <script>
+        function switchTab(tabId) {
+            // Sembunyikan semua konten tab
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Matikan semua status aktif tombol menu
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Tampilkan tab yang diklik dan aktifkan tombolnya
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Animasi 3D Partikel Latar Belakang
         const canvas = document.getElementById('bgCanvas');
         const ctx = canvas.getContext('2d');
 
@@ -249,8 +331,6 @@
 
         function loop() {
             ctx.clearRect(0, 0, width, height);
-            
-            // Efek Jaringan Partikel 3D
             for (let i = 0; i < particles.length; i++) {
                 particles[i].position();
                 particles[i].draw();

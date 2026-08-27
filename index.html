@@ -156,22 +156,21 @@
             font-weight: 600;
         }
 
-        main p, main ul {
-            margin-bottom: 18px;
+        h3 {
+            font-size: 15px;
+            color: var(--primary);
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        main p {
+            margin-bottom: 15px;
             color: #334155;
             font-size: 15px;
         }
 
-        main ul {
-            padding-left: 20px;
-        }
-
-        main li {
-            margin-bottom: 10px;
-        }
-
-        /* Styling Item Materi dengan Tombol Tautan */
-        .materi-card {
+        /* Styling Kartu Tautan & Artikel */
+        .article-card {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             padding: 15px;
@@ -180,18 +179,18 @@
             transition: transform 0.2s;
         }
 
-        .materi-card:hover {
+        .article-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
-        .materi-card h4 {
+        .article-card h4 {
             color: var(--primary);
             font-size: 15px;
             margin-bottom: 5px;
         }
 
-        .materi-card p {
+        .article-card p {
             font-size: 13px;
             color: var(--text-muted);
             margin-bottom: 10px;
@@ -241,7 +240,7 @@
 
     <div class="container">
         <header>
-            <!-- Menu Navigasi Blog Utama Tanpa Sub-menu Bertingkat -->
+            <!-- Menu Navigasi Blog Utama -->
             <nav class="nav-menu">
                 <button class="nav-btn active" onclick="switchTab('beranda')">Beranda</button>
                 <button class="nav-btn" onclick="switchTab('profil')">Profil</button>
@@ -272,45 +271,65 @@
                 <p>Perjalanan karier ini mencerminkan komitmen tinggi terhadap peningkatan kualitas pembelajaran, khususnya dalam membangun fondasi pemikiran logis dan numerasi peserta didik sejak dini.</p>
             </div>
 
-            <!-- 3. Menu Materi Ajar (Gabungan Materi & Perangkat Ajar dengan Tautan) -->
+            <!-- 3. Menu Materi Ajar -->
             <div id="materi-ajar" class="tab-content">
                 <h2>Materi & Perangkat Ajar</h2>
                 <p>Berikut adalah kumpulan materi pembelajaran serta perangkat ajar lengkap dengan keterangan dan tautan akses file:</p>
 
-                <div class="materi-card">
+                <div class="article-card">
                     <h4>Matematika Dasar & Numerasi SD</h4>
                     <p>Modul konsep dasar hitung, pecahan, dan logika matematika kelas awal hingga tinggi.</p>
                     <a href="https://drive.google.com" target="_blank" class="link-btn">Buka Materi &rarr;</a>
                 </div>
 
-                <div class="materi-card">
+                <div class="article-card">
                     <h4>Modul Ajar / RPP Kurikulum Merdeka</h4>
                     <p>Rancangan kegiatan harian yang interaktif, fleksibel, dan berpusat pada peserta didik.</p>
                     <a href="https://drive.google.com" target="_blank" class="link-btn">Unduh Perangkat &rarr;</a>
                 </div>
 
-                <div class="materi-card">
+                <div class="article-card">
                     <h4>Capaian Pembelajaran (CP) & ATP</h4>
                     <p>Peta jalan kompetensi peserta didik dan alur tujuan pembelajaran per fase.</p>
                     <a href="https://drive.google.com" target="_blank" class="link-btn">Lihat Dokumen &rarr;</a>
                 </div>
-
-                <div class="materi-card">
-                    <h4>Bank Soal & Lembar Penilaian (LKPD)</h4>
-                    <p>Kumpulan lembar kerja mandiri, instrumen formatif, serta asesmen sumatif harian.</p>
-                    <a href="https://drive.google.com" target="_blank" class="link-btn">Akses Bank Soal &rarr;</a>
-                </div>
             </div>
 
-            <!-- 4. Menu Artikel -->
+            <!-- 4. Menu Artikel (Seputar Pendidikan, Web SDN Seddur 1, & Web Pendidikan Lainnya) -->
             <div id="artikel" class="tab-content">
-                <h2>Artikel & Refleksi Pendidik</h2>
-                <p>Catatan pemikiran seputar dunia pendidikan dan pengalaman di ruang kelas:</p>
-                <ul>
-                    <li>Strategi Menumbuhkan Minat Belajar Matematika Sejak Usia Dini.</li>
-                    <li>Transisi Pembelajaran dari Sekolah Menengah ke Sekolah Dasar: Tantangan dan Solusi Adaptif.</li>
-                    <li>Refleksi Penggunaan Metode Pembelajaran Berpusat pada Siswa.</li>
-                </ul>
+                <h2>Artikel & Tautan Pendidikan</h2>
+                <p>Kumpulan artikel inspiratif, informasi resmi satuan pendidikan, serta referensi website dunia pendidikan:</p>
+
+                <h3>1. Seputar Dunia Pendidikan</h3>
+                <div class="article-card">
+                    <h4>Strategi Menumbuhkan Minat Belajar Matematika Sejak Usia Dini</h4>
+                    <p>Catatan refleksi mengenai metode pendekatan yang ramah anak dalam memahami konsep dasar matematika.</p>
+                    <a href="#" class="link-btn">Baca Artikel &rarr;</a>
+                </div>
+                <div class="article-card">
+                    <h4>Transisi Pembelajaran dari SMP ke Sekolah Dasar</h4>
+                    <p>Tantangan adaptif guru dalam membangun fondasi logis siswa sekolah dasar.</p>
+                    <a href="#" class="link-btn">Baca Artikel &rarr;</a>
+                </div>
+
+                <h3>2. Website SDN Seddur 1 Pakong</h3>
+                <div class="article-card">
+                    <h4>Profil Resmi & Kegiatan Sekolah</h4>
+                    <p>Informasi seputar kegiatan belajar mengajar, profil sekolah, dan galeri aktivitas siswa di SDN Seddur 1 Pakong.</p>
+                    <a href="https://ryanto23.github.io/rusdiyanto" target="_blank" class="link-btn">Kunjungi Website &rarr;</a>
+                </div>
+
+                <h3>3. Website Dunia Pendidikan Lainnya</h3>
+                <div class="article-card">
+                    <h4>Platform Merdeka Mengajar (PMM)</h4>
+                    <p>Media referensi guru untuk mengajar, belajar, dan berkarya dalam mengimplementasikan Kurikulum Merdeka.</p>
+                    <a href="https://guru.kemdikbud.go.id" target="_blank" class="link-btn">Kunjungi PMM &rarr;</a>
+                </div>
+                <div class="article-card">
+                    <h4>Rumah Belajar Kemendikbud</h4>
+                    <p>Portal sumber belajar resmi yang menyediakan bahan ajar interaktif bagi siswa dan guru.</p>
+                    <a href="https://belajar.kemdikbud.go.id" target="_blank" class="link-btn">Kunjungi Sumber Belajar &rarr;</a>
+                </div>
             </div>
 
             <!-- 5. Menu Kontak -->
@@ -333,20 +352,16 @@
     <!-- Script Tab Navigasi & Animasi 3D -->
     <script>
         function switchTab(tabId) {
-            // Sembunyikan semua konten tab
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
 
-            // Matikan semua status aktif tombol menu
             const buttons = document.querySelectorAll('.nav-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
 
-            // Tampilkan tab yang diklik dan aktifkan tombolnya
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
         }
 
-        // Animasi 3D Partikel Latar Belakang
         const canvas = document.getElementById('bgCanvas');
         const ctx = canvas.getContext('2d');
 

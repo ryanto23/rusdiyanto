@@ -10,8 +10,7 @@
             --primary: #1e3a8a;
             --secondary: #3b82f6;
             --accent: #f59e0b;
-            --bg-color: #f1f5f9;
-            --card-bg: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.9);
             --text-main: #1e293b;
             --text-muted: #64748b;
         }
@@ -26,37 +25,84 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.7;
             color: var(--text-main);
-            background-color: var(--bg-color);
-            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Latar Belakang 3D Interaktif (Canvas) */
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a, #312e81);
         }
 
         .container {
             max-width: 750px;
-            margin: 0 auto;
+            width: 100%;
             background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-radius: 20px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             overflow: hidden;
-            border: 1px solid rgba(226, 232, 240, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            margin: auto;
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.85), rgba(59, 130, 246, 0.85));
             color: #fff;
-            padding: 50px 30px 40px;
+            padding: 40px 30px 30px;
             text-align: center;
             position: relative;
         }
 
+        /* Menu Navigasi Blog */
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-menu a:hover {
+            background: var(--accent);
+            color: #1e293b;
+            transform: translateY(-2px);
+        }
+
         /* Styling Area Foto Profil */
         .profile-pic-container {
-            width: 130px;
-            height: 130px;
-            margin: 0 auto 20px;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
             border-radius: 50%;
             background: #ffffff;
             padding: 4px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .profile-pic {
@@ -64,39 +110,39 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            background-color: #e2e8f0; /* Fallback warna jika foto belum dimuat */
+            background-color: #e2e8f0;
         }
 
         header h1 { 
-            font-size: 26px; 
+            font-size: 24px; 
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             letter-spacing: -0.5px;
         }
 
         header p {
-            font-size: 15px;
+            font-size: 14px;
             color: rgba(255, 255, 255, 0.9);
             font-weight: 300;
         }
 
         main {
-            padding: 40px;
+            padding: 35px 40px;
         }
 
         h2 { 
-            font-size: 20px;
+            font-size: 18px;
             color: var(--primary); 
-            border-bottom: 2px solid #f1f5f9; 
-            padding-bottom: 10px; 
-            margin-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0; 
+            padding-bottom: 8px; 
+            margin-bottom: 15px;
             font-weight: 600;
         }
 
         main p {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             color: #334155;
-            font-size: 16px;
+            font-size: 15px;
         }
 
         strong {
@@ -106,25 +152,36 @@
 
         footer {
             text-align: center;
-            padding: 25px;
-            background-color: #f8fafc;
+            padding: 20px;
+            background-color: rgba(248, 250, 252, 0.8);
             font-size: 13px;
             color: var(--text-muted);
-            border-top: 1px solid #f1f5f9;
+            border-top: 1px solid #e2e8f0;
         }
 
         @media (max-width: 600px) {
-            body { padding: 15px; }
+            body { padding: 10px; }
             main { padding: 25px 20px; }
-            header { padding: 40px 20px 30px; }
+            header { padding: 30px 20px 20px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Canvas untuk Latar Belakang 3D Bergerak -->
+    <canvas id="bgCanvas"></canvas>
+
     <div class="container">
         <header>
-            <!-- Ganti atribut src dengan link foto profil Anda (atau nama file gambar lokal misal: foto.jpg) -->
+            <!-- Menu Navigasi Blog -->
+            <nav class="nav-menu">
+                <a href="#">Beranda</a>
+                <a href="#">Profil</a>
+                <a href="#">Materi Ajar</a>
+                <a href="#">Artikel</a>
+                <a href="#">Kontak</a>
+            </nav>
+
             <div class="profile-pic-container">
                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Foto Profil Rusdiyanto" class="profile-pic">
             </div>
@@ -144,5 +201,76 @@
         </footer>
     </div>
 
+    <!-- Script Animasi 3D Partikel Bergerak -->
+    <script>
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const particles = [];
+        const properties = {
+            particleCount: 50,
+            particleRadius: 3,
+            lineLength: 150,
+            particleSpeed: 0.5
+        };
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.velocityX = (Math.random() - 0.5) * properties.particleSpeed;
+                this.velocityY = (Math.random() - 0.5) * properties.particleSpeed;
+            }
+            position() {
+                this.x + this.velocityX > width && this.velocityX > 0 || this.x + this.velocityX < 0 && this.velocityX < 0 ? this.velocityX *= -1 : null;
+                this.y + this.velocityY > height && this.velocityY > 0 || this.y + this.velocityY < 0 && this.velocityY < 0 ? this.velocityY *= -1 : null;
+                this.x += this.velocityX;
+                this.y += this.velocityY;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, properties.particleRadius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.7)';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < properties.particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function loop() {
+            ctx.clearRect(0, 0, width, height);
+            
+            // Efek Jaringan Partikel 3D
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].position();
+                particles[i].draw();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const distance = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
+                    if (distance < properties.lineLength) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(59, 130, 246, ${1 - distance / properties.lineLength})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(loop);
+        }
+
+        loop();
+    </script>
 </body>
 </html>

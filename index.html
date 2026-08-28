@@ -312,7 +312,7 @@
 </head>
 <body>
 
-    <!-- Canvas untuk Latar Belakang Animasi Tata Surya & Pesawat Ruang Angkasa -->
+    <!-- Canvas untuk Latar Belakang Animasi Tata Surya & Pesawat Ruang Angkasa Dinamis -->
     <canvas id="bgCanvas"></canvas>
 
     <div class="container">
@@ -485,7 +485,7 @@
         </footer>
     </div>
 
-    <!-- Script Tab Navigasi & Animasi Planet (Matahari Sampai Pluto) + Pesawat Ruang Angkasa -->
+    <!-- Script Tab Navigasi & Animasi Tata Surya serta Multi Pesawat Ruang Angkasa yang Hidup -->
     <script>
         function switchTab(tabId) {
             const contents = document.querySelectorAll('.tab-content');
@@ -509,15 +509,15 @@
             height = canvas.height = window.innerHeight;
         });
 
-        // Latar Belakang Bintang Berkelap-kelip
+        // Latar Belakang Bintang Berkelap-kelip dengan Efek Parallax/Kedalaman
         const stars = [];
-        for (let i = 0; i < 120; i++) {
+        for (let i = 0; i < 160; i++) {
             stars.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
-                radius: Math.random() * 1.5,
+                radius: Math.random() * 1.8,
                 alpha: Math.random(),
-                speed: Math.random() * 0.02 + 0.005
+                speed: Math.random() * 0.025 + 0.005
             });
         }
 
@@ -535,16 +535,35 @@
             { name: 'Pluto', radius: 4, color: '#cbd5e1', orbitRadius: 545, speed: 0.0012, angle: Math.random() * Math.PI * 2 }
         ];
 
-        // Objek Pesawat Ruang Angkasa (Spaceship) yang Bergerak Melintasi Layar
-        let spaceship = {
-            x: -100,
-            y: Math.random() * height,
-            speed: 1.8,
-            size: 16
-        };
+        // Beberapa Pesawat Ruang Angkasa dengan Trajektori, Rotasi, dan Kecepatan Natural Berbeda
+        const spaceships = [
+            {
+                x: -120,
+                y: height * 0.2,
+                speed: 1.6,
+                angle: 0.2,
+                wobbleSpeed: 0.02,
+                wobbleDist: 40,
+                baseY: height * 0.2,
+                scale: 1
+            },
+            {
+                x: -250,
+                y: height * 0.7,
+                speed: 2.2,
+                angle: -0.15,
+                wobbleSpeed: 0.03,
+                wobbleDist: 60,
+                baseY: height * 0.7,
+                scale: 0.75 // Pesawat tampak lebih kecil (lebih jauh di latar belakang)
+            }
+        ];
+
+        let timeCounter = 0;
 
         function animateSpace() {
             ctx.clearRect(0, 0, width, height);
+            timeCounter += 0.05;
 
             // 1. Gambar Bintang
             stars.forEach(star => {
@@ -562,14 +581,12 @@
             // 2. Gambar Jalur Orbit, Planet, dan Label Nama Planet
             planets.forEach((planet, index) => {
                 if (index > 0) {
-                    // Garis Orbit Tipis
                     ctx.beginPath();
                     ctx.arc(centerX, centerY, planet.orbitRadius, 0, Math.PI * 2);
                     ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
                     ctx.lineWidth = 1;
                     ctx.stroke();
 
-                    // Perbarui posisi sudut planet
                     planet.angle += planet.speed;
                     planet.x = centerX + Math.cos(planet.angle) * planet.orbitRadius;
                     planet.y = centerY + Math.sin(planet.angle) * planet.orbitRadius;
@@ -578,12 +595,10 @@
                     planet.y = centerY;
                 }
 
-                // Gambar Planet / Matahari
                 ctx.beginPath();
                 ctx.arc(planet.x, planet.y, planet.radius, 0, Math.PI * 2);
                 
                 if (index === 0) {
-                    // Efek Cahaya Matahari (Sun Glow)
                     const gradient = ctx.createRadialGradient(planet.x, planet.y, 5, planet.x, planet.y, planet.radius * 2);
                     gradient.addColorStop(0, '#fef08a');
                     gradient.addColorStop(0.5, '#f59e0b');
@@ -597,7 +612,6 @@
                     ctx.fill();
                     ctx.shadowBlur = 0;
 
-                    // Tambahan Cincin Khusus untuk Saturnus
                     if (planet.hasRing) {
                         ctx.beginPath();
                         ctx.ellipse(planet.x, planet.y, planet.radius + 7, planet.radius / 2.5, Math.PI / 4, 0, Math.PI * 2);
@@ -607,70 +621,89 @@
                     }
                 }
 
-                // Tampilkan Teks/Label Nama Planet & Matahari
                 ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
                 ctx.font = '10px Inter, sans-serif';
                 ctx.textAlign = 'center';
                 ctx.fillText(planet.name, planet.x, planet.y + planet.radius + 12);
             });
 
-            // 3. Gerakkan dan Gambar Pesawat Ruang Angkasa
-            spaceship.x += spaceship.speed;
-            // Jika pesawat keluar layar kanan, munculkan kembali dari kiri secara acak vertikal
-            if (spaceship.x > width + 100) {
-                spaceship.x = -100;
-                spaceship.y = Math.random() * height;
-            }
+            // 3. Gerakkan dan Render Pesawat Ruang Angkasa Agar Terasa Hidup & Alami
+            spaceships.forEach(ship => {
+                ship.x += ship.speed;
+                // Gerakan naik turun (wobble/melayang alami seperti gravitasi nol)
+                ship.y = ship.baseY + Math.sin(timeCounter * ship.wobbleSpeed + ship.x * 0.01) * ship.wobbleDist;
 
-            ctx.save();
-            ctx.translate(spaceship.x, spaceship.y);
-            // Putar sedikit sesuai arah gerak
-            ctx.rotate(0.15);
+                // Jika pesawat melewati batas layar kanan, reset ke kiri dengan posisi vertikal baru
+                if (ship.x > width + 150) {
+                    ship.x = -150;
+                    ship.baseY = Math.random() * (height - 200) + 100;
+                }
 
-            // Badan Utama Pesawat
-            ctx.beginPath();
-            ctx.moveTo(15, 0);
-            ctx.lineTo(-12, -8);
-            ctx.lineTo(-6, 0);
-            ctx.lineTo(-12, 8);
-            ctx.closePath();
-            ctx.fillStyle = '#e2e8f0';
-            ctx.fill();
-            ctx.strokeStyle = '#94a3b8';
-            ctx.lineWidth = 1;
-            ctx.stroke();
+                ctx.save();
+                ctx.translate(ship.x, ship.y);
+                ctx.scale(ship.scale, ship.scale);
+                ctx.rotate(ship.angle + Math.sin(timeCounter * 0.1) * 0.05); // Sedikit goyangan natural pada sudut terbang
 
-            // Kokpit Pesawat (Kaca Biru)
-            ctx.beginPath();
-            ctx.arc(2, -1, 3, 0, Math.PI * 2);
-            ctx.fillStyle = '#38bdf8';
-            ctx.fill();
+                // Efek Jejak Partikel Debu/Asap Halus di Belakang Pesawat
+                ctx.beginPath();
+                ctx.moveTo(-12, 0);
+                ctx.lineTo(-45 - Math.random() * 15, (Math.random() - 0.5) * 6);
+                ctx.strokeStyle = 'rgba(148, 163, 184, 0.15)';
+                ctx.lineWidth = 3;
+                ctx.stroke();
 
-            // Sayap / Detail Sayap Bawah
-            ctx.beginPath();
-            ctx.moveTo(-4, -4);
-            ctx.lineTo(-10, -12);
-            ctx.lineTo(-8, -4);
-            ctx.fillStyle = '#cbd5e1';
-            ctx.fill();
+                // Badan Utama Pesawat
+                ctx.beginPath();
+                ctx.moveTo(18, 0);
+                ctx.lineTo(-14, -10);
+                ctx.lineTo(-8, 0);
+                ctx.lineTo(-14, 10);
+                ctx.closePath();
+                ctx.fillStyle = '#f1f5f9';
+                ctx.fill();
+                ctx.strokeStyle = '#64748b';
+                ctx.lineWidth = 1.2;
+                ctx.stroke();
 
-            ctx.beginPath();
-            ctx.moveTo(-4, 4);
-            ctx.lineTo(-10, 12);
-            ctx.lineTo(-8, 4);
-            ctx.fillStyle = '#cbd5e1';
-            ctx.fill();
+                // Kokpit Jendela Depan (Warna Biru Bersinar)
+                ctx.beginPath();
+                ctx.arc(3, -1, 3.5, 0, Math.PI * 2);
+                ctx.fillStyle = '#38bdf8';
+                ctx.shadowColor = '#38bdf8';
+                ctx.shadowBlur = 6;
+                ctx.fill();
+                ctx.shadowBlur = 0;
 
-            // Semburan Api / Asap Pendorong di Belakang Pesawat
-            ctx.beginPath();
-            ctx.moveTo(-10, -4);
-            ctx.lineTo(-20 - Math.random() * 8, 0);
-            ctx.lineTo(-10, 4);
-            ctx.closePath();
-            ctx.fillStyle = '#f97316';
-            ctx.fill();
+                // Sayap Atas & Bawah Bergradasi
+                ctx.beginPath();
+                ctx.moveTo(-4, -5);
+                ctx.lineTo(-12, -15);
+                ctx.lineTo(-9, -5);
+                ctx.fillStyle = '#cbd5e1';
+                ctx.fill();
 
-            ctx.restore();
+                ctx.beginPath();
+                ctx.moveTo(-4, 5);
+                ctx.lineTo(-12, 15);
+                ctx.lineTo(-9, 5);
+                ctx.fillStyle = '#cbd5e1';
+                ctx.fill();
+
+                // Semburan Api Pendorong Utama yang Berkedip Dinamis
+                ctx.beginPath();
+                ctx.moveTo(-12, -5);
+                ctx.lineTo(-24 - Math.random() * 12, 0);
+                ctx.lineTo(-12, 5);
+                ctx.closePath();
+                
+                const flameGradient = ctx.createLinearGradient(-12, 0, -28, 0);
+                flameGradient.addColorStop(0, '#f97316');
+                flameGradient.addColorStop(1, 'rgba(239, 68, 68, 0)');
+                ctx.fillStyle = flameGradient;
+                ctx.fill();
+
+                ctx.restore();
+            });
 
             requestAnimationFrame(animateSpace);
         }

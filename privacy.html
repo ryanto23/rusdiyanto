@@ -1,1 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kebijakan Privasi - Profil Pendidik SDN Seddur 1 Pakong</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #3b82f6;
+            --accent: #f59e0b;
+            --card-bg: rgba(255, 255, 255, 0.92);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+        }
+
+        .container {
+            max-width: 750px;
+            width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            margin: auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.85), rgba(59, 130, 246, 0.85));
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 { 
+            font-size: 22px; 
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        main {
+            padding: 35px 40px;
+        }
+
+        h2 { 
+            font-size: 16px;
+            color: var(--primary); 
+            border-bottom: 2px solid #e2e8f0; 
+            padding-bottom: 6px; 
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        p, ul {
+            margin-bottom: 15px;
+            color: #334155;
+            font-size: 14px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: #fff;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s;
+            margin-top: 10px;
+        }
+
+        .back-btn:hover {
+            background: var(--primary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(248, 250, 252, 0.8);
+            font-size: 13px;
+            color: var(--text-muted);
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="container">
+        <header>
+            <h1>Kebijakan Privasi</h1>
+            <p>Profil Pendidik - SDN Seddur 1 Pakong</p>
+        </header>
+
+        <main>
+            <h2>1. Pendahuluan</h2>
+            <p>Halaman web ini dikelola secara mandiri sebagai media informasi pendidikan, berbagi perangkat ajar, dan dokumentasi kegiatan. Kami sangat menghargai privasi setiap pengunjung yang mengakses situs ini.</p>
+
+            <h2>2. Informasi yang Tidak Kami Kumpulkan</h2>
+            <p>Situs ini bersifat statis dan tidak menggunakan sistem pendaftaran akun, formulir pendaftaran database internal, atau pelacakan data pribadi secara tersembunyi. Kami tidak mengumpulkan nama, alamat, atau nomor telepon pengunjung kecuali Anda memberikannya secara sukarela melalui kontak langsung.</p>
+
+            <h2>3. Penggunaan Tautan dan Layanan Eksternal</h2>
+            <p>Website ini menyediakan tautan menuju platform pihak ketiga, seperti:</p>
+            <ul>
+                <li>Google Drive (untuk akses dokumen dan materi ajar).</li>
+                <li>Platform Merdeka Mengajar (PMM) dan laman resmi Kemendikdasmen.</li>
+                <li>Aplikasi perpesanan WhatsApp dan layanan email eksternal.</li>
+            </ul>
+            <p>Kebijakan privasi pada platform-platform tersebut sepenuhnya berada di luar kendali kami. Anda disarankan untuk membaca kebijakan privasi masing-masing situs eksternal yang dikunjungi.</p>
+
+            <h2>4. Penggunaan Aset Pihak Ketiga</h2>
+            <p>Situs ini memuat pustaka font eksternal standar dari <strong>Google Fonts</strong> untuk memastikan keterbacaan teks yang optimal. Layanan tersebut dapat mencatat log akses standar (seperti alamat IP dasar) sesuai dengan kebijakan privasi penyedia layanan terkait.</p>
+
+            <h2>5. Perubahan Kebijakan Privasi</h2>
+            <p>Kebijakan privasi ini dapat ditinjau atau diperbarui dari waktu ke waktu jika terdapat penambahan fitur atau pembaruan struktur situs web pada repositori.</p>
+
+            <a href="index.html" class="back-btn">&larr; Kembali ke Beranda</a>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Rusdiyanto, S.Pd. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const stars = [];
+        for (let i = 0; i < 100; i++) {
+            stars.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 1.5,
+                alpha: Math.random(),
+                speed: Math.random() * 0.02 + 0.005
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            stars.forEach(star => {
+                star.alpha += star.speed;
+                if (star.alpha > 1 || star.alpha < 0.2) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>

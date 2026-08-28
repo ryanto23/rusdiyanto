@@ -96,7 +96,7 @@
             font-weight: 600;
         }
 
-        /* Styling Area Foto Profil */
+        /* Styling Area Foto Profil & Efek Gerak Interaktif */
         .profile-pic-container {
             width: 120px;
             height: 120px;
@@ -113,6 +113,13 @@
             border-radius: 50%;
             object-fit: cover;
             background-color: #e2e8f0;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.12) rotate(5deg);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
         }
 
         header h1 { 
@@ -338,7 +345,7 @@
                 <p>Perjalanan karier ini mencerminkan komitmen tinggi terhadap peningkatan kualitas pembelajaran, khususnya dalam membangun fondasi pemikiran logis dan numerasi peserta didik sejak dini.</p>
             </div>
 
-            <!-- 3. Menu Galeri Kegiatan (Baru) -->
+            <!-- 3. Menu Galeri Kegiatan -->
             <div id="galeri" class="tab-content">
                 <h2>Galeri Kegiatan Pendidikan</h2>
                 <p>Dokumentasi aktivitas pembelajaran di sekolah maupun kegiatan luar sekolah yang mendukung dunia pendidikan:</p>
@@ -387,7 +394,7 @@
                 </div>
             </div>
 
-            <!-- 5. Menu Artikel (Seputar Pendidikan, Web SDN Seddur 1, & Web Pendidikan Lainnya) -->
+            <!-- 5. Menu Artikel -->
             <div id="artikel" class="tab-content">
                 <h2>Artikel & Tautan Pendidikan</h2>
                 <p>Kumpulan artikel inspiratif, informasi resmi satuan pendidikan, serta referensi website dunia pendidikan:</p>

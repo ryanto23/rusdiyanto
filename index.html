@@ -390,12 +390,12 @@
     <div class="container">
         <header>
             <nav class="nav-menu">
-                <button class="nav-btn active" onclick="switchTab('beranda')">Beranda</button>
-                <button class="nav-btn" onclick="switchTab('profil')">Profil</button>
-                <button class="nav-btn" onclick="switchTab('galeri')">Galeri</button>
-                <button class="nav-btn" onclick="switchTab('materi-ajar')">Materi Ajar</button>
-                <button class="nav-btn" onclick="switchTab('artikel')">Artikel</button>
-                <button class="nav-btn" onclick="switchTab('kontak')">Kontak</button>
+                <button class="nav-btn active" onclick="switchTab(event, 'beranda')">Beranda</button>
+                <button class="nav-btn" onclick="switchTab(event, 'profil')">Profil</button>
+                <button class="nav-btn" onclick="switchTab(event, 'galeri')">Galeri</button>
+                <button class="nav-btn" onclick="switchTab(event, 'materi-ajar')">Materi Ajar</button>
+                <button class="nav-btn" onclick="switchTab(event, 'artikel')">Artikel</button>
+                <button class="nav-btn" onclick="switchTab(event, 'kontak')">Kontak</button>
             </nav>
 
             <div class="profile-pic-container">
@@ -537,7 +537,7 @@
                     <a href="https://pip.kemendikdasmen.go.id/" target="_blank" class="link-btn">PIP &rarr;</a>
                      <h4>TKA</h4>
                     <a href="https://tka.kemendikdasmen.go.id/" target="_blank" class="link-btn">Login TKA &rarr;</a>
-                     <h4>Portal TRYOUT TKA</h4>
+                    <h4>Portal TRYOUT TKA</h4>
                     <a href="https://tka.onedumind.com/" target="_blank" class="link-btn">Belajar Tryout &rarr;</a>
                 </div>
                 
@@ -582,7 +582,7 @@
     </div>
 
     <script>
-        function switchTab(tabId) {
+        function switchTab(event, tabId) {
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
 
@@ -763,21 +763,6 @@
                 ctx.lineTo(-12, -15);
                 ctx.lineTo(-9, -5);
                 ctx.fillStyle = '#cbd5e1';
-                ctx.fill();
-
-                ctx.beginPath();
-                ctx.moveTo(-4, 5);
-                ctx.lineTo(-12, 15);
-                ctx.lineTo(-9, 5);
-                ctx.fillStyle = '#cbd5e1';
-                ctx.fill();
-
-                ctx.beginPath();
-                ctx.moveTo(-12, -5);
-                ctx.lineTo(-24 - Math.random() * 12, 0);
-                ctx.lineTo(-12, 5);
-                ctx.closePath();
-                
                 const flameGradient = ctx.createLinearGradient(-12, 0, -28, 0);
                 flameGradient.addColorStop(0, '#f97316');
                 flameGradient.addColorStop(1, 'rgba(239, 68, 68, 0)');
@@ -836,6 +821,15 @@
             dragger.style.right = 'auto';
             dragger.style.bottom = 'auto';
         });
+
+        dragger.updatePointerCapture = (e) => {
+            if (isDragging) {
+                isDragging = false;
+                try {
+                    dragger.releasePointerCapture(e.pointerId);
+                } catch (err) {}
+            }
+        };
 
         dragger.addEventListener('pointerup', (e) => {
             if (isDragging) {

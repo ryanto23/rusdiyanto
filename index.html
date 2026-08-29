@@ -294,6 +294,75 @@
             font-weight: 600;
         }
 
+        /* CSS untuk Tombol Floating CS WhatsApp Draggable */
+        .wa-float-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            cursor: grab;
+            user-select: none;
+            touch-action: none;
+        }
+        .wa-float-container:active {
+            cursor: grabbing;
+        }
+        .wa-float-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            position: relative;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .wa-float-btn:hover {
+            transform: scale(1.1);
+        }
+        .wa-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffffff;
+        }
+        .wa-pulse {
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border: 2px solid #25d366;
+            border-radius: 50%;
+            animation: pulse-ring 1.5s infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+        .wa-tooltip {
+            position: absolute;
+            right: 70px;
+            background: #ffffff;
+            color: #1e293b;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        .wa-float-container:hover .wa-tooltip {
+            opacity: 1;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -325,6 +394,15 @@
 
     <!-- Canvas untuk Latar Belakang Animasi Tata Surya & Pesawat Ruang Angkasa Dinamis -->
     <canvas id="bgCanvas"></canvas>
+
+    <!-- Tombol Floating CS WhatsApp Draggable -->
+    <div id="draggable-wa" class="wa-float-container">
+        <a href="https://wa.me/628999910186?text=Halo%20Pak%20Rusdiyanto,%20saya%20ingin%20berdiskusi%20seputar%20pendidikan." target="_blank" class="wa-float-btn" title="Chat Customer Service">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" alt="CS" class="wa-avatar">
+            <span class="wa-pulse"></span>
+            <div class="wa-tooltip">Hubungi CS</div>
+        </a>
+    </div>
 
     <div class="container">
         <header>
@@ -752,6 +830,64 @@
         }
 
         animateSpace();
+
+        // Skrip untuk tombol Draggable WhatsApp CS
+        const dragger = document.getElementById('draggable-wa');
+        let isDragging = false;
+        let startX, startY, initialX, initialY;
+        let hasMoved = false;
+
+        dragger.addEventListener('pointerdown', (e) => {
+            isDragging = true;
+            hasMoved = false;
+            startX = e.clientX;
+            startY = e.clientY;
+            
+            const rect = dragger.getBoundingClientRect();
+            initialX = rect.left;
+            initialY = rect.top;
+            
+            dragger.setPointerCapture(e.pointerId);
+            e.preventDefault();
+        });
+
+        dragger.addEventListener('pointermove', (e) => {
+            if (!isDragging) return;
+            
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+            
+            if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+                hasMoved = true;
+            }
+            
+            let newX = initialX + dx;
+            let newY = initialY + dy;
+            
+            // Batasi agar tidak keluar layar
+            const maxX = window.innerWidth - dragger.offsetWidth;
+            const maxY = window.innerHeight - dragger.offsetHeight;
+            
+            newX = Math.max(0, Math.min(newX, maxX));
+            newY = Math.max(0, Math.min(newY, maxY));
+            
+            dragger.style.left = newX + 'px';
+            dragger.style.top = newY + 'px';
+            dragger.style.bottom = 'auto';
+            dragger.style.right = 'auto';
+        });
+
+        dragger.addEventListener('pointerup', (e) => {
+            isDragging = false;
+            dragger.releasePointerCapture(e.pointerId);
+        });
+
+        // Mencegah link terbuka ketika tombol digeser
+        dragger.querySelector('a').addEventListener('click', (e) => {
+            if (hasMoved) {
+                e.preventDefault();
+            }
+        });
     </script>
 </body>
 </html>

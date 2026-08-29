@@ -10,7 +10,7 @@
             --primary: #1e3a8a;
             --secondary: #3b82f6;
             --accent: #f59e0b;
-            --card-bg: rgba(255, 255, 255, 0.92);
+            --card-bg: rgba(255, 255, 255, 0.95);
             --text-main: #1e293b;
             --text-muted: #64748b;
         }
@@ -47,66 +47,77 @@
         }
 
         .container {
-            max-width: 750px;
+            max-width: 800px;
             width: 100%;
             background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             margin: auto;
         }
 
         header {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.85), rgba(59, 130, 246, 0.85));
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(59, 130, 246, 0.9));
             color: #fff;
-            padding: 40px 30px 30px;
+            padding: 35px 30px 30px;
             text-align: center;
             position: relative;
         }
 
+        /* Navigasi Pill-Shaped Modern */
         .nav-menu {
             display: flex;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             margin-bottom: 25px;
             flex-wrap: wrap;
+            background: rgba(0, 0, 0, 0.12);
+            padding: 6px;
+            border-radius: 30px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .nav-btn {
             color: #ffffff;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 500;
-            padding: 6px 14px;
-            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 16px;
+            background: transparent;
             border-radius: 20px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
             cursor: pointer;
         }
 
-        .nav-btn:hover, .nav-btn.active {
-            background: var(--accent);
-            color: #1e293b;
-            transform: translateY(-2px);
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .nav-btn.active {
+            background: #ffffff;
+            color: var(--primary);
             font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-1px);
         }
 
         .profile-pic-container {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             margin: 0 auto 15px;
             border-radius: 50%;
             background: #ffffff;
-            padding: 4px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            position: relative; /* Ditambahkan agar efek pulse bisa menempel dengan rapi */
+            padding: 3px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            position: relative;
         }
 
-        /* Mengubah foto profil agar bisa diklik dan terhubung ke WhatsApp */
         .profile-pic-link {
             display: block;
             width: 100%;
@@ -123,24 +134,36 @@
             object-fit: cover;
             background-color: #e2e8f0;
             transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.8s ease-in-out;
-            will-change: transform;
         }
 
         .profile-pic-link:hover .profile-pic {
-            transform: scale(1.15) rotate(360deg);
+            transform: scale(1.1) rotate(360deg);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
         }
 
         header h1 { 
-            font-size: 24px; 
+            font-size: 22px; 
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             letter-spacing: -0.5px;
         }
 
+        /* Badge Profesional */
+        .professional-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fef08a;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            letter-spacing: 0.3px;
+        }
+
         header p {
-            font-size: 14px;
+            font-size: 13px;
             color: rgba(255, 255, 255, 0.9);
             font-weight: 300;
         }
@@ -164,7 +187,7 @@
         }
 
         h2 { 
-            font-size: 18px;
+            font-size: 17px;
             color: var(--primary); 
             border-bottom: 2px solid #e2e8f0; 
             padding-bottom: 8px; 
@@ -173,65 +196,125 @@
         }
 
         h3 {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--primary);
-            margin-top: 15px;
+            margin-top: 18px;
             margin-bottom: 8px;
+            font-weight: 600;
         }
 
         main p {
             margin-bottom: 15px;
             color: #334155;
-            font-size: 15px;
+            font-size: 14px;
+        }
+
+        /* Search Bar Modern */
+        .search-box {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: #ffffff;
+            color: var(--text-main);
+        }
+
+        .search-box:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        /* Tata Letak Kartu Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+            margin-bottom: 15px;
         }
 
         .article-card {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 12px;
-            transition: transform 0.2s;
+            padding: 16px;
+            border-radius: 12px;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .article-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border-color: #cbd5e1;
         }
 
         .article-card h4 {
             color: var(--primary);
-            font-size: 15px;
-            margin-bottom: 5px;
+            font-size: 14px;
+            margin-bottom: 6px;
+            font-weight: 600;
         }
 
         .article-card p {
             font-size: 13px;
             color: var(--text-muted);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            flex-grow: 1;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
         }
 
         .link-btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
             background: var(--secondary);
             color: #fff;
-            padding: 5px 12px;
+            padding: 6px 12px;
             font-size: 12px;
             font-weight: 500;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.2s;
-            margin-right: 5px;
-            margin-bottom: 5px;
+            border-radius: 8px;
+            transition: all 0.2s;
         }
 
         .link-btn:hover {
             background: var(--primary);
         }
 
+        /* Kutipan Filosofi Pendidikan (Blockquote) */
+        .quote-box {
+            background: linear-gradient(to right, #eff6ff, #f8fafc);
+            border-left: 4px solid var(--secondary);
+            padding: 16px 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+            font-style: italic;
+            color: #1e293b;
+            font-size: 14px;
+        }
+
+        .quote-box cite {
+            display: block;
+            margin-top: 6px;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
             gap: 15px;
             margin-top: 15px;
         }
@@ -239,7 +322,7 @@
         .gallery-item {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 2px 6px rgba(0,0,0,0.04);
             transition: transform 0.2s;
@@ -247,12 +330,12 @@
 
         .gallery-item:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
         }
 
         .gallery-img {
             width: 100%;
-            height: 130px;
+            height: 120px;
             object-fit: cover;
             display: block;
         }
@@ -284,7 +367,6 @@
             font-weight: 600;
         }
 
-        /* Animasi Pulse untuk Foto Profil (Opsional agar makin menarik) */
         .wa-pulse {
             position: absolute;
             top: -4px;
@@ -343,22 +425,29 @@
                 <button class="nav-btn" onclick="switchTab(event, 'kontak')">Kontak</button>
             </nav>
 
-            <!-- Bagian Tombol Floating CS dihapus dan diganti dengan Foto Profil yang terhubung ke WhatsApp -->
             <div class="profile-pic-container">
                 <a href="https://wa.me/628999910186?text=Halo%20Pak%20Rusdiyanto,%20saya%20ingin%20berdiskusi%20seputar%20pendidikan." target="_blank" class="profile-pic-link" title="Chat WhatsApp Pak Rusdiyanto">
                     <img src="foto/cs.jpeg" alt="Foto Profil Rusdiyanto" class="profile-pic">
                     <span class="wa-pulse"></span>
                 </a>
             </div>
-            <h1>Selamat Datang di Blog Pendidikan</h1>
-            <p>Catatan dan Refleksi Pendidik SDN Seddur 1 Pakong</p>
+            
+            <div class="professional-badge">Pendidik SDN Seddur 1 Pakong | Penggiat Literasi & Numerasi</div>
+            <h1>Rusdiyanto, S.Pd.</h1>
+            <p>Catatan, Perangkat Ajar, & Refleksi Pendidik Profesional</p>
         </header>
 
         <main>
             <div id="beranda" class="tab-content active">
                 <h2>Assalamu'alaikum</h2>
                 <p>Selamat datang di ruang digital pengabdian saya. Blog ini dikelola sebagai wadah dokumentasi kegiatan belajar-mengajar, refleksi pendidikan, serta media berbagi sumber belajar interaktif bagi siswa dan rekan-rekan pendidik.</p>
-                <p>Mari bersama-sama memajukan kualitas pendidikan dasar melalui inovasi pembelajaran yang menyenangkan dan bermakna.</p>
+                
+                <div class="quote-box">
+                    "Pendidikan bukan sekadar mengisi wadah yang kosong, tetapi menyalakan api rasa ingin tahu agar peserta didik mampu berpikir kritis, logis, dan bermakna."
+                    <cite>— Rusdiyanto, S.Pd.</cite>
+                </div>
+
+                <p>Mari bersama-sama memajukan kualitas pendidikan dasar melalui inovasi pembelajaran yang menyenangkan dan berpusat pada peserta didik.</p>
             </div>
 
             <div id="profil" class="tab-content">
@@ -393,120 +482,121 @@
 
             <div id="materi-ajar" class="tab-content">
                 <h2>Materi & Perangkat Ajar</h2>
-                <p>Berikut adalah kumpulan materi pembelajaran serta perangkat ajar lengkap dengan keterangan dan tautan akses file:</p>
+                <input type="text" id="searchMateri" class="search-box" placeholder="Cari materi ajar atau perangkat kelas (ketik di sini)..." onkeyup="filterMateri()">
+                
+                <div id="containerMateri" class="grid-container">
+                    <div class="article-card searchable-item" data-keywords="numerasi matematika hitung pecahan">
+                        <div>
+                            <h4>Numerasi</h4>
+                            <p>Modul konsep dasar hitung, pecahan, dan logika matematika awal hingga tinggi.</p>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://drive.google.com/file/d/1M2kLHgEs1qUPBd-l1wIXDIxZ0v9ywQDs/view?usp=sharing" target="_blank" class="link-btn">Buka Materi &rarr;</a>
+                        </div>
+                    </div>
 
-                <div class="article-card">
-                    <h4>Numerasi</h4>
-                    <p>Modul konsep dasar hitung, pecahan, dan logika matematika awal hingga tinggi.</p>
-                    <a href="https://drive.google.com/file/d/1M2kLHgEs1qUPBd-l1wIXDIxZ0v9ywQDs/view?usp=sharing" target="_blank" class="link-btn">Buka Materi &rarr;</a>
-                </div>
+                    <div class="article-card searchable-item" data-keywords="modul ajar kelas 4 kelas 6 harian">
+                        <div>
+                            <h4>Modul Ajar</h4>
+                            <p>Rancangan kegiatan harian yang interaktif, fleksibel, dan berpusat pada peserta didik.</p>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://drive.google.com/drive/folders/1xfsm9zrVHNZdew3Y2k-xwDDH6CSlru4S?usp=sharing" target="_blank" class="link-btn">Kelas 4 &rarr;</a>
+                            <a href="https://drive.google.com/drive/folders/1IpOCpIpWsG3eKVfcKtvZoQSl4vdavR4I?usp=sharing" target="_blank" class="link-btn">Kelas 6 &rarr;</a>
+                        </div>
+                    </div>
 
-                <div class="article-card">
-                    <h4>Modul Ajar</h4>
-                    <p>Rancangan kegiatan harian yang interaktif, fleksibel, dan berpusat pada peserta didik.</p>
-                    <a href="https://drive.google.com/drive/folders/1xfsm9zrVHNZdew3Y2k-xwDDH6CSlru4S?usp=sharing" target="_blank" class="link-btn">Kelas 4 &rarr;</a>
-                    <a href="https://drive.google.com/drive/folders/1IpOCpIpWsG3eKVfcKtvZoQSl4vdavR4I?usp=sharing" target="_blank" class="link-btn">Kelas 6 &rarr;</a>
-                </div>
-
-                <div class="article-card">
-                    <h4>Rangkuman Materi</h4>
-                    <p>Rangkuman materi mencakup konsep dasar dikemas secara interaktif dan menyenangkan agar mudah dipahami.</p>
-                    <a href="https://drive.google.com/drive/folders/1OqrZoVv663UOzpffuFQ-MyHQD5iRZHEy?usp=sharing" target="_blank" class="link-btn">kelas 1 &rarr;</a>
-                    <a href="https://drive.google.com/drive/folders/1h0Gw4jujZ5BrkD24Rl_yfg03B1FfakhR?usp=sharing" target="_blank" class="link-btn">kelas 2 &rarr;</a>
-                    <a href="https://drive.google.com/drive/folders/1zQ2hpYoQBTdU40CkqjWdhKXSekBnQpPg?usp=sharing" target="_blank" class="link-btn">kelas 3 &rarr;</a>
-                    <a href="https://drive.google.com/drive/folders/1h-p10zLnubcKD7qRtMt-4bo7ftefyL0k?usp=sharing" target="_blank" class="link-btn">kelas 4 &rarr;</a>
-                    <a href="https://drive.google.com/drive/folders/1i5RrMqgWvSnnYZGTJnyBNoBnk3vL4HjJ?usp=sharing" target="_blank" class="link-btn">kelas 5 &rarr;</a>
-                    <a href="https://drive.google.com/drive/folders/1DCITTEyh6hu15IsmlC2ZiXcR3Q-w0p6m?usp=sharing" target="_blank" class="link-btn">kelas 6 &rarr;</a>
+                    <div class="article-card searchable-item" data-keywords="rangkuman materi kelas 1 2 3 4 5 6">
+                        <div>
+                            <h4>Rangkuman Materi</h4>
+                            <p>Rangkuman materi mencakup konsep dasar dikemas secara interaktif dan menyenangkan.</p>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://drive.google.com/drive/folders/1OqrZoVv663UOzpffuFQ-MyHQD5iRZHEy?usp=sharing" target="_blank" class="link-btn">Kelas 1</a>
+                            <a href="https://drive.google.com/drive/folders/1h0Gw4jujZ5BrkD24Rl_yfg03B1FfakhR?usp=sharing" target="_blank" class="link-btn">Kelas 2</a>
+                            <a href="https://drive.google.com/drive/folders/1zQ2hpYoQBTdU40CkqjWdhKXSekBnQpPg?usp=sharing" target="_blank" class="link-btn">Kelas 3</a>
+                            <a href="https://drive.google.com/drive/folders/1h-p10zLnubcKD7qRtMt-4bo7ftefyL0k?usp=sharing" target="_blank" class="link-btn">Kelas 4</a>
+                            <a href="https://drive.google.com/drive/folders/1i5RrMqgWvSnnYZGTJnyBNoBnk3vL4HjJ?usp=sharing" target="_blank" class="link-btn">Kelas 5</a>
+                            <a href="https://drive.google.com/drive/folders/1DCITTEyh6hu15IsmlC2ZiXcR3Q-w0p6m?usp=sharing" target="_blank" class="link-btn">Kelas 6</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div id="artikel" class="tab-content">
                 <h2>Artikel & Tautan Pendidikan</h2>
-                <p>Kumpulan artikel inspiratif, informasi resmi satuan pendidikan, serta referensi website dunia pendidikan:</p>
-                
-                <h3>1. Website SDN Seddur 1 Pakong</h3>
-                <div class="article-card">
-                    <h4>Profil Resmi & Kegiatan Sekolah</h4>
-                    <p>Informasi seputar kegiatan belajar mengajar, profil sekolah, dan galeri aktivitas siswa di SDN Seddur 1 Pakong.</p>
-                    <a href="https://ryanto23.github.io/sdnseddur1/" target="_blank" class="link-btn">Kunjungi Website &rarr;</a>
-                </div>
+                <input type="text" id="searchArtikel" class="search-box" placeholder="Cari artikel, panduan mapel, atau link operator..." onkeyup="filterArtikel()">
 
-                <h3>2. BUKU UNTUK SEMUA</h3>
-                <div class="article-card">
-                    <h4> Akses Buku Resmi Kemendikdasmen melalui Sistem Informasi Perbukuan Indonesia (SIBI)</h4>
-                    <a href="https://buku.kemendikdasmen.go.id/katalog" target="_blank" class="link-btn">Baca Artikel &rarr;</a>
-                </div>
+                <div id="containerArtikel">
+                    <h3>1. Website SDN Seddur 1 Pakong</h3>
+                    <div class="article-card searchable-artikel">
+                        <h4>Profil Resmi & Kegiatan Sekolah</h4>
+                        <p>Informasi seputar kegiatan belajar mengajar, profil sekolah, dan galeri aktivitas siswa di SDN Seddur 1 Pakong.</p>
+                        <a href="https://ryanto23.github.io/sdnseddur1/" target="_blank" class="link-btn">Kunjungi Website &rarr;</a>
+                    </div>
 
-                <h3>3. Perangkat Ajar Pembelajaran Mendalam (Deep Learning) Jenjang SD, SMP dan SMA</h3>
-                <div class="article-card">
-                    <h4> Perangkat Kelas 1</h4>
-                    <a href="https://s.id/Perangkat-Kelas-1" target="_blank" class="link-btn">Baca Artikel &rarr;</a>
-                    <h4> Perangkat Kelas 2</h4>
-                    <a href="https://s.id/Perangkat-Kelas-2" target="_blank" class="link-btn">Baca Artikel &rarr;</a>
-                    <h4> Perangkat Kelas 3</h4>
-                    <a href="https://s.id/Perangkat-Kelas-3" target="_blank" class="link-btn">Baca Artikel &rarr;</a>
-                    <h4> Perangkat Kelas 4</h4>
-                    <a href="https://s.id/Perangkat-Kelas-4" target="_blank" class="link-btn">Baca Artikel &rarr;</a>
-                    <h4> Perangkat Kelas 5</h4>
-                    <a href="https://s.id/Perangkat-Kelas-5" target="_blank" class="link-btn">Baca Artikel &rarr;</a>
-                    <h4> Perangkat Kelas 6</h4>
-                    <a href="https://s.id/Perangkat-Kelas-6" target="_blank" class="link-btn">Baca Artikel &rarr;</a>
-                    <h4> Perangkat Kelas 7</h4>
-                    <a href="https://s.id/Perangkat-Kelas-7" target="_blank" class="link-btn">Baca Artikel &rarr;</a>
-                    <h4> Perangkat Kelas 8</h4>
-                    <a href="https://s.id/Perangkat-Kelas-8" target="_blank" class="link-btn">Baca Artikel &rarr;</a>
-                    <h4> Perangkat Kelas 9</h4>
-                    <a href="https://s.id/Perangkat-Kelas-9" target="_blank" class="link-btn">Baca Artikel &rarr;</a>
-                    <h4> Perangkat Kelas 10</h4>
-                    <a href="https://s.id/Perangkat-Kelas-10" target="_blank" class="link-btn">Baca Artikel &rarr;</a>
-                    <h4> Perangkat Kelas 11</h4>
-                    <a href="https://s.id/Perangkat-Kelas-11" target="_blank" class="link-btn">Baca Artikel &rarr;</a>
-                    <h4> Perangkat Kelas 12</h4>
-                    <a href="https://s.id/Perangkat-Kelas-12" target="_blank" class="link-btn">Baca Artikel &rarr;</a>
-                </div>
+                    <h3>2. BUKU UNTUK SEMUA</h3>
+                    <div class="article-card searchable-artikel">
+                        <h4>Akses Buku Resmi Kemendikdasmen melalui Sistem Informasi Perbukuan Indonesia (SIBI)</h4>
+                        <a href="https://buku.kemendikdasmen.go.id/katalog" target="_blank" class="link-btn">Baca Artikel &rarr;</a>
+                    </div>
 
-                <h3>4. PORTAL PENTING OPERATOR SEKOLAH</h3>
-                <div class="article-card">
-                    <p>Operator Hebat, Data Akurat, Pendidikan Kuat</p>
-                    <h4>Dapodik</h4>
-                    <a href="https://dapo.kemendikdasmen.go.id/" target="_blank" class="link-btn">dapodik &rarr;</a>
-                     <h4>Info GTK</h4>
-                    <a href="https://info.gtk.kemendikdasmen.go.id/" target="_blank" class="link-btn">gtk &rarr;</a>
-                     <h4>Manajemen Sekolah</h4>
-                    <a href="https://sp.datadik.kemendikdasmen.go.id/" target="_blank" class="link-btn">sp sekolah &rarr;</a>
-                     <h4>Manajemen PTK</h4>
-                    <a href="https://ptk.datadik.kemendikdasmen.go.id/" target="_blank" class="link-btn">ptk &rarr;</a>
-                     <h4>simPKB</h4>
-                    <a href="https://akun.simpkb.id/" target="_blank" class="link-btn">simPKB &rarr;</a>
-                     <h4>vervalPD</h4>
-                    <a href="https://vervalpd.data.kemendikdasmen.go.id/" target="_blank" class="link-btn">verval &rarr;</a>
-                     <h4>Dashboard Sulingjar</h4>
-                    <a href="https://dashboardslb.kemendikdasmen.go.id/" target="_blank" class="link-btn">sulinjar &rarr;</a>
-                     <h4>PIP Beasiswa</h4>
-                    <a href="https://pip.kemendikdasmen.go.id/" target="_blank" class="link-btn">PIP &rarr;</a>
-                     <h4>TKA</h4>
-                    <a href="https://tka.kemendikdasmen.go.id/" target="_blank" class="link-btn">Login TKA &rarr;</a>
-                     <h4>Portal TRYOUT TKA</h4>
-                    <a href="https://tka.onedumind.com/" target="_blank" class="link-btn">Belajar Tryout &rarr;</a>
-                </div>
-                
-                <h3>5. PANDUAN MATA PELAJARAN KEMENDIKDASMEN</h3>
-                <div class="article-card">
-                    <h4>panduan sesuai jenjang</h4>
-                    <p>Kemendikdasmen telah menerbitkan Panduan Mata Pelajaran sebagai acuan bagi guru.</p>
-                    <a href="https://kurikulum.kemendikdasmen.go.id/panduan-mapel" target="_blank" class="link-btn">Kunjungi Panduan &rarr;</a>
-                </div>
+                    <h3>3. Perangkat Ajar Pembelajaran Mendalam (Deep Learning) Jenjang SD, SMP dan SMA</h3>
+                    <div class="article-card searchable-artikel">
+                        <h4>Perangkat Lengkap Kelas 1 - 12</h4>
+                        <p style="margin-bottom: 10px;">Akses cepat tautan perangkat pembelajaran deep learning berdasarkan jenjang kelas.</p>
+                        <div class="card-actions">
+                            <a href="https://s.id/Perangkat-Kelas-1" target="_blank" class="link-btn">Kls 1</a>
+                            <a href="https://s.id/Perangkat-Kelas-2" target="_blank" class="link-btn">Kls 2</a>
+                            <a href="https://s.id/Perangkat-Kelas-3" target="_blank" class="link-btn">Kls 3</a>
+                            <a href="https://s.id/Perangkat-Kelas-4" target="_blank" class="link-btn">Kls 4</a>
+                            <a href="https://s.id/Perangkat-Kelas-5" target="_blank" class="link-btn">Kls 5</a>
+                            <a href="https://s.id/Perangkat-Kelas-6" target="_blank" class="link-btn">Kls 6</a>
+                            <a href="https://s.id/Perangkat-Kelas-7" target="_blank" class="link-btn">Kls 7</a>
+                            <a href="https://s.id/Perangkat-Kelas-8" target="_blank" class="link-btn">Kls 8</a>
+                            <a href="https://s.id/Perangkat-Kelas-9" target="_blank" class="link-btn">Kls 9</a>
+                            <a href="https://s.id/Perangkat-Kelas-10" target="_blank" class="link-btn">Kls 10</a>
+                            <a href="https://s.id/Perangkat-Kelas-11" target="_blank" class="link-btn">Kls 11</a>
+                            <a href="https://s.id/Perangkat-Kelas-12" target="_blank" class="link-btn">Kls 12</a>
+                        </div>
+                    </div>
 
-                 <h3>6. Website Dunia Pendidikan Lainnya</h3>
-                <div class="article-card">
-                    <h4>Platform Merdeka Mengajar (PMM)</h4>
-                    <p>Media referensi guru untuk mengajar, belajar, dan berkarya dalam mengimplementasikan Kurikulum Merdeka.</p>
-                    <a href="https://guru.kemendikdasmen.go.id/" target="_blank" class="link-btn">Kunjungi PMM &rarr;</a>
-                </div>
-                <div class="article-card">
-                    <h4>Rumah Belajar Kemendikbud</h4>
-                    <p>Portal sumber belajar resmi yang menyediakan bahan ajar interaktif bagi siswa dan guru.</p>
-                    <a href="https://rumah.pendidikan.go.id/" target="_blank" class="link-btn">Kunjungi Sumber Belajar &rarr;</a>
+                    <h3>4. PORTAL PENTING OPERATOR SEKOLAH</h3>
+                    <div class="article-card searchable-artikel">
+                        <h4>Operator Hebat, Data Akurat, Pendidikan Kuat</h4>
+                        <p style="margin-bottom: 10px;">Tautan resmi pendukung manajemen data pendidikan dan GTK.</p>
+                        <div class="card-actions">
+                            <a href="https://dapo.kemendikdasmen.go.id/" target="_blank" class="link-btn">Dapodik</a>
+                            <a href="https://info.gtk.kemendikdasmen.go.id/" target="_blank" class="link-btn">Info GTK</a>
+                            <a href="https://sp.datadik.kemendikdasmen.go.id/" target="_blank" class="link-btn">SP Sekolah</a>
+                            <a href="https://ptk.datadik.kemendikdasmen.go.id/" target="_blank" class="link-btn">Manajemen PTK</a>
+                            <a href="https://akun.simpkb.id/" target="_blank" class="link-btn">SimPKB</a>
+                            <a href="https://vervalpd.data.kemendikdasmen.go.id/" target="_blank" class="link-btn">VervalPD</a>
+                            <a href="https://dashboardslb.kemendikdasmen.go.id/" target="_blank" class="link-btn">Sulingjar</a>
+                            <a href="https://pip.kemendikdasmen.go.id/" target="_blank" class="link-btn">PIP Beasiswa</a>
+                            <a href="https://tka.kemendikdasmen.go.id/" target="_blank" class="link-btn">Login TKA</a>
+                            <a href="https://tka.onedumind.com/" target="_blank" class="link-btn">Tryout TKA</a>
+                        </div>
+                    </div>
+                    
+                    <h3>5. PANDUAN MATA PELAJARAN KEMENDIKDASMEN</h3>
+                    <div class="article-card searchable-artikel">
+                        <h4>Panduan Sesuai Jenjang</h4>
+                        <p>Kemendikdasmen telah menerbitkan Panduan Mata Pelajaran sebagai acuan bagi guru.</p>
+                        <a href="https://kurikulum.kemendikdasmen.go.id/panduan-mapel" target="_blank" class="link-btn">Kunjungi Panduan &rarr;</a>
+                    </div>
+
+                    <h3>6. Website Dunia Pendidikan Lainnya</h3>
+                    <div class="article-card searchable-artikel">
+                        <h4>Platform Merdeka Mengajar (PMM)</h4>
+                        <p>Media referensi guru untuk mengajar, belajar, dan berkarya dalam Kurikulum Merdeka.</p>
+                        <a href="https://guru.kemendikdasmen.go.id/" target="_blank" class="link-btn">Kunjungi PMM &rarr;</a>
+                    </div>
+                    <div class="article-card searchable-artikel">
+                        <h4>Rumah Belajar Kemendikbud</h4>
+                        <p>Portal sumber belajar resmi yang menyediakan bahan ajar interaktif bagi siswa dan guru.</p>
+                        <a href="https://rumah.pendidikan.go.id/" target="_blank" class="link-btn">Kunjungi Sumber Belajar &rarr;</a>
+                    </div>
                 </div>
             </div>
 
@@ -540,6 +630,26 @@
 
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
+        }
+
+        // Fungsi Pencarian Interaktif Materi Ajar
+        function filterMateri() {
+            let input = document.getElementById('searchMateri').value.toLowerCase();
+            let items = document.querySelectorAll('.searchable-item');
+            items.forEach(item => {
+                let text = item.innerText.toLowerCase();
+                item.style.display = text.includes(input) ? "flex" : "none";
+            });
+        }
+
+        // Fungsi Pencarian Interaktif Artikel
+        function filterArtikel() {
+            let input = document.getElementById('searchArtikel').value.toLowerCase();
+            let items = document.querySelectorAll('.searchable-artikel');
+            items.forEach(item => {
+                let text = item.innerText.toLowerCase();
+                item.style.display = text.includes(input) ? "block" : "none";
+            });
         }
 
         const canvas = document.getElementById('bgCanvas');
@@ -675,7 +785,7 @@
                     ship.baseY = Math.random() * (height - 200) + 100;
                 }
 
-                    ctx.save();
+                ctx.save();
                 ctx.translate(ship.x, ship.y);
                 ctx.scale(ship.scale, ship.scale);
                 ctx.rotate(ship.angle + Math.sin(timeCounter * 0.1) * 0.05);

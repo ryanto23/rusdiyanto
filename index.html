@@ -294,7 +294,7 @@
             font-weight: 600;
         }
 
-        /* CSS untuk Tombol Floating CS WhatsApp Draggable */
+        /* CSS untuk Tombol Floating CS WhatsApp Draggable dengan Gambar Orang Ber-headset */
         .wa-float-container {
             position: fixed;
             bottom: 30px;
@@ -395,10 +395,10 @@
     <!-- Canvas untuk Latar Belakang Animasi Tata Surya & Pesawat Ruang Angkasa Dinamis -->
     <canvas id="bgCanvas"></canvas>
 
-    <!-- Tombol Floating CS WhatsApp Draggable -->
+    <!-- Tombol Floating CS WhatsApp Draggable dengan Gambar Orang Ber-headset -->
     <div id="draggable-wa" class="wa-float-container">
         <a href="https://wa.me/628999910186?text=Halo%20Pak%20Rusdiyanto,%20saya%20ingin%20berdiskusi%20seputar%20pendidikan." target="_blank" class="wa-float-btn" title="Chat Customer Service">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" alt="CS" class="wa-avatar">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150" alt="Customer Service" class="wa-avatar">
             <span class="wa-pulse"></span>
             <div class="wa-tooltip">Hubungi CS</div>
         </a>
@@ -563,19 +563,19 @@
                      <h4>Portal TRYOUT TKA</h4>
                     <a href="https://tka.onedumind.com/" class="link-btn">Baca Artikel &rarr;</a>
                 </div>
-
-                 <h3>5. Website Dunia Pendidikan Lainnya</h3>
-                <div class="article-card">
-                    <h4>Platform Merdeka Mengajar (PMM)</h4>
-                    <p>Media referensi guru untuk mengajar, belajar, dan berkarya dalam mengimplementasikan Kurikulum Merdeka.</p>
-                    <a href="https://guru.kemendikdasmen.go.id/" target="_blank" class="link-btn">Kunjungi PMM &rarr;</a>
-                </div>
                 
-                <h3>6. PANDUAN MATA PELAJARAN KEMENDIKDASMEN</h3>
+                <h3>5. PANDUAN MATA PELAJARAN KEMENDIKDASMEN</h3>
                 <div class="article-card">
                     <h4>panduan sesuai jenjang</h4>
                     <p>Kemendikdasmen telah menerbitkan Panduan Mata Pelajaran sebagai acuan bagi guru.</p>
                     <a href="https://kurikulum.kemendikdasmen.go.id/panduan-mapel" target="_blank" class="link-btn">Kunjungi PMM &rarr;</a>
+                </div>
+
+                 <h3>6. Website Dunia Pendidikan Lainnya</h3>
+                <div class="article-card">
+                    <h4>Platform Merdeka Mengajar (PMM)</h4>
+                    <p>Media referensi guru untuk mengajar, belajar, dan berkarya dalam mengimplementasikan Kurikulum Merdeka.</p>
+                    <a href="https://guru.kemendikdasmen.go.id/" target="_blank" class="link-btn">Kunjungi PMM &rarr;</a>
                 </div>
                 <div class="article-card">
                     <h4>Rumah Belajar Kemendikbud</h4>
@@ -676,7 +676,7 @@
                 wobbleSpeed: 0.03,
                 wobbleDist: 60,
                 baseY: height * 0.7,
-                scale: 0.75 // Pesawat tampak lebih kecil (lebih jauh di latar belakang)
+                scale: 0.75 
             }
         ];
 
@@ -748,13 +748,11 @@
                 ctx.fillText(planet.name, planet.x, planet.y + planet.radius + 12);
             });
 
-            // 3. Gerakkan dan Render Pesawat Ruang Angkasa Agar Terasa Hidup & Alami
+            // 3. Gerakkan dan Render Pesawat Ruang Angkasa
             spaceships.forEach(ship => {
                 ship.x += ship.speed;
-                // Gerakan naik turun (wobble/melayang alami seperti gravitasi nol)
                 ship.y = ship.baseY + Math.sin(timeCounter * ship.wobbleSpeed + ship.x * 0.01) * ship.wobbleDist;
 
-                // Jika pesawat melewati batas layar kanan, reset ke kiri dengan posisi vertikal baru
                 if (ship.x > width + 150) {
                     ship.x = -150;
                     ship.baseY = Math.random() * (height - 200) + 100;
@@ -763,9 +761,8 @@
                 ctx.save();
                 ctx.translate(ship.x, ship.y);
                 ctx.scale(ship.scale, ship.scale);
-                ctx.rotate(ship.angle + Math.sin(timeCounter * 0.1) * 0.05); // Sedikit goyangan natural pada sudut terbang
+                ctx.rotate(ship.angle + Math.sin(timeCounter * 0.1) * 0.05);
 
-                // Efek Jejak Partikel Debu/Asap Halus di Belakang Pesawat
                 ctx.beginPath();
                 ctx.moveTo(-12, 0);
                 ctx.lineTo(-45 - Math.random() * 15, (Math.random() - 0.5) * 6);
@@ -773,7 +770,6 @@
                 ctx.lineWidth = 3;
                 ctx.stroke();
 
-                // Badan Utama Pesawat
                 ctx.beginPath();
                 ctx.moveTo(18, 0);
                 ctx.lineTo(-14, -10);
@@ -786,7 +782,6 @@
                 ctx.lineWidth = 1.2;
                 ctx.stroke();
 
-                // Kokpit Jendela Depan (Warna Biru Bersinar)
                 ctx.beginPath();
                 ctx.arc(3, -1, 3.5, 0, Math.PI * 2);
                 ctx.fillStyle = '#38bdf8';
@@ -795,7 +790,6 @@
                 ctx.fill();
                 ctx.shadowBlur = 0;
 
-                // Sayap Atas & Bawah Bergradasi
                 ctx.beginPath();
                 ctx.moveTo(-4, -5);
                 ctx.lineTo(-12, -15);
@@ -810,7 +804,6 @@
                 ctx.fillStyle = '#cbd5e1';
                 ctx.fill();
 
-                // Semburan Api Pendorong Utama yang Berkedip Dinamis
                 ctx.beginPath();
                 ctx.moveTo(-12, -5);
                 ctx.lineTo(-24 - Math.random() * 12, 0);
@@ -864,7 +857,6 @@
             let newX = initialX + dx;
             let newY = initialY + dy;
             
-            // Batasi agar tidak keluar layar
             const maxX = window.innerWidth - dragger.offsetWidth;
             const maxY = window.innerHeight - dragger.offsetHeight;
             
@@ -882,7 +874,6 @@
             dragger.releasePointerCapture(e.pointerId);
         });
 
-        // Mencegah link terbuka ketika tombol digeser
         dragger.querySelector('a').addEventListener('click', (e) => {
             if (hasMoved) {
                 e.preventDefault();

@@ -209,25 +209,6 @@
             font-size: 14px;
         }
 
-        /* Search Bar Modern */
-        .search-box {
-            width: 100%;
-            padding: 12px 16px;
-            font-size: 14px;
-            border: 1px solid #cbd5e1;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            outline: none;
-            transition: all 0.3s ease;
-            background: #ffffff;
-            color: var(--text-main);
-        }
-
-        .search-box:focus {
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
-        }
-
         /* Tata Letak Kartu Grid */
         .grid-container {
             display: grid;
@@ -482,10 +463,9 @@
 
             <div id="materi-ajar" class="tab-content">
                 <h2>Materi & Perangkat Ajar</h2>
-                <input type="text" id="searchMateri" class="search-box" placeholder="Cari materi ajar atau perangkat kelas (ketik di sini)..." onkeyup="filterMateri()">
                 
-                <div id="containerMateri" class="grid-container">
-                    <div class="article-card searchable-item" data-keywords="numerasi matematika hitung pecahan">
+                <div class="grid-container">
+                    <div class="article-card">
                         <div>
                             <h4>Numerasi</h4>
                             <p>Modul konsep dasar hitung, pecahan, dan logika matematika awal hingga tinggi.</p>
@@ -495,7 +475,7 @@
                         </div>
                     </div>
 
-                    <div class="article-card searchable-item" data-keywords="modul ajar kelas 4 kelas 6 harian">
+                    <div class="article-card">
                         <div>
                             <h4>Modul Ajar</h4>
                             <p>Rancangan kegiatan harian yang interaktif, fleksibel, dan berpusat pada peserta didik.</p>
@@ -506,7 +486,7 @@
                         </div>
                     </div>
 
-                    <div class="article-card searchable-item" data-keywords="rangkuman materi kelas 1 2 3 4 5 6">
+                    <div class="article-card">
                         <div>
                             <h4>Rangkuman Materi</h4>
                             <p>Rangkuman materi mencakup konsep dasar dikemas secara interaktif dan menyenangkan.</p>
@@ -525,24 +505,23 @@
 
             <div id="artikel" class="tab-content">
                 <h2>Artikel & Tautan Pendidikan</h2>
-                <input type="text" id="searchArtikel" class="search-box" placeholder="Cari artikel, panduan mapel, atau link operator..." onkeyup="filterArtikel()">
 
-                <div id="containerArtikel">
+                <div>
                     <h3>1. Website SDN Seddur 1 Pakong</h3>
-                    <div class="article-card searchable-artikel">
+                    <div class="article-card">
                         <h4>Profil Resmi & Kegiatan Sekolah</h4>
                         <p>Informasi seputar kegiatan belajar mengajar, profil sekolah, dan galeri aktivitas siswa di SDN Seddur 1 Pakong.</p>
                         <a href="https://ryanto23.github.io/sdnseddur1/" target="_blank" class="link-btn">Kunjungi Website &rarr;</a>
                     </div>
 
                     <h3>2. BUKU UNTUK SEMUA</h3>
-                    <div class="article-card searchable-artikel">
+                    <div class="article-card">
                         <h4>Akses Buku Resmi Kemendikdasmen melalui Sistem Informasi Perbukuan Indonesia (SIBI)</h4>
                         <a href="https://buku.kemendikdasmen.go.id/katalog" target="_blank" class="link-btn">Baca Artikel &rarr;</a>
                     </div>
 
                     <h3>3. Perangkat Ajar Pembelajaran Mendalam (Deep Learning) Jenjang SD, SMP dan SMA</h3>
-                    <div class="article-card searchable-artikel">
+                    <div class="article-card">
                         <h4>Perangkat Lengkap Kelas 1 - 12</h4>
                         <p style="margin-bottom: 10px;">Akses cepat tautan perangkat pembelajaran deep learning berdasarkan jenjang kelas.</p>
                         <div class="card-actions">
@@ -562,7 +541,7 @@
                     </div>
 
                     <h3>4. PORTAL PENTING OPERATOR SEKOLAH</h3>
-                    <div class="article-card searchable-artikel">
+                    <div class="article-card">
                         <h4>Operator Hebat, Data Akurat, Pendidikan Kuat</h4>
                         <p style="margin-bottom: 10px;">Tautan resmi pendukung manajemen data pendidikan dan GTK.</p>
                         <div class="card-actions">
@@ -580,19 +559,19 @@
                     </div>
                     
                     <h3>5. PANDUAN MATA PELAJARAN KEMENDIKDASMEN</h3>
-                    <div class="article-card searchable-artikel">
+                    <div class="article-card">
                         <h4>Panduan Sesuai Jenjang</h4>
                         <p>Kemendikdasmen telah menerbitkan Panduan Mata Pelajaran sebagai acuan bagi guru.</p>
                         <a href="https://kurikulum.kemendikdasmen.go.id/panduan-mapel" target="_blank" class="link-btn">Kunjungi Panduan &rarr;</a>
                     </div>
 
                     <h3>6. Website Dunia Pendidikan Lainnya</h3>
-                    <div class="article-card searchable-artikel">
+                    <div class="article-card">
                         <h4>Platform Merdeka Mengajar (PMM)</h4>
                         <p>Media referensi guru untuk mengajar, belajar, dan berkarya dalam Kurikulum Merdeka.</p>
                         <a href="https://guru.kemendikdasmen.go.id/" target="_blank" class="link-btn">Kunjungi PMM &rarr;</a>
                     </div>
-                    <div class="article-card searchable-artikel">
+                    <div class="article-card">
                         <h4>Rumah Belajar Kemendikbud</h4>
                         <p>Portal sumber belajar resmi yang menyediakan bahan ajar interaktif bagi siswa dan guru.</p>
                         <a href="https://rumah.pendidikan.go.id/" target="_blank" class="link-btn">Kunjungi Sumber Belajar &rarr;</a>
@@ -630,26 +609,6 @@
 
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
-        }
-
-        // Fungsi Pencarian Interaktif Materi Ajar
-        function filterMateri() {
-            let input = document.getElementById('searchMateri').value.toLowerCase();
-            let items = document.querySelectorAll('.searchable-item');
-            items.forEach(item => {
-                let text = item.innerText.toLowerCase();
-                item.style.display = text.includes(input) ? "flex" : "none";
-            });
-        }
-
-        // Fungsi Pencarian Interaktif Artikel
-        function filterArtikel() {
-            let input = document.getElementById('searchArtikel').value.toLowerCase();
-            let items = document.querySelectorAll('.searchable-artikel');
-            items.forEach(item => {
-                let text = item.innerText.toLowerCase();
-                item.style.display = text.includes(input) ? "block" : "none";
-            });
         }
 
         const canvas = document.getElementById('bgCanvas');

@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Pendidik - SDN Seddur 1 Pakong</title>
+    
+    <!-- Meta Tags SEO & Open Graph untuk Pratinjau Sosial Media -->
+    <meta name="description" content="Profil resmi, perangkat ajar, materi numerasi, dan tautan pendidikan interaktif oleh Rusdiyanto, S.Pd. - Pendidik SDN Seddur 1 Pakong.">
+    <meta property="og:title" content="Profil Pendidik - Rusdiyanto, S.Pd.">
+    <meta property="og:description" content="Wadah dokumentasi, refleksi pendidikan, dan sumber belajar interaktif pendidik SDN Seddur 1 Pakong.">
+    <meta property="og:image" content="foto/cs.jpeg">
+    <meta property="og:type" content="website">
+
     <!-- Memuat Font Inter & FontAwesome untuk Ikon Modern -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -24,7 +32,6 @@
             padding: 0;
         }
 
-        /* Perbaikan Poin 1 & 2: Background Elegan & Layout Full-Page Standar Web */
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.7;
@@ -57,7 +64,6 @@
             position: relative;
         }
 
-        /* Navigasi Pill-Shaped Modern dengan Ikon */
         .nav-menu {
             display: flex;
             justify-content: center;
@@ -257,7 +263,6 @@
             background: var(--primary);
         }
 
-        /* Perbaikan Poin 3: Desain Grid Tabel/List Rapi untuk Menu Kelas & Portal */
         .links-grid-compact {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -407,19 +412,19 @@
 
     <div class="container">
         <header>
-            <!-- Perbaikan Poin 4: Penambahan Ikon Pendukung pada Tombol Navigasi -->
-            <nav class="nav-menu">
-                <button class="nav-btn active" onclick="switchTab(event, 'beranda')"><i class="fa-solid fa-house"></i> Beranda</button>
-                <button class="nav-btn" onclick="switchTab(event, 'profil')"><i class="fa-solid fa-user-tie"></i> Profil</button>
-                <button class="nav-btn" onclick="switchTab(event, 'galeri')"><i class="fa-solid fa-images"></i> Galeri</button>
-                <button class="nav-btn" onclick="switchTab(event, 'materi-ajar')"><i class="fa-solid fa-book-open"></i> Materi Ajar</button>
-                <button class="nav-btn" onclick="switchTab(event, 'artikel')"><i class="fa-solid fa-newspaper"></i> Artikel</button>
-                <button class="nav-btn" onclick="switchTab(event, 'kontak')"><i class="fa-solid fa-envelope"></i> Kontak</button>
+            <!-- Navigasi dengan ARIA Attributes untuk Aksesibilitas Screen Reader -->
+            <nav class="nav-menu" role="tablist">
+                <button class="nav-btn active" role="tab" aria-selected="true" aria-controls="beranda" onclick="switchTab(event, 'beranda')"><i class="fa-solid fa-house"></i> Beranda</button>
+                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="profil" onclick="switchTab(event, 'profil')"><i class="fa-solid fa-user-tie"></i> Profil</button>
+                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="galeri" onclick="switchTab(event, 'galeri')"><i class="fa-solid fa-images"></i> Galeri</button>
+                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="materi-ajar" onclick="switchTab(event, 'materi-ajar')"><i class="fa-solid fa-book-open"></i> Materi Ajar</button>
+                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="artikel" onclick="switchTab(event, 'artikel')"><i class="fa-solid fa-newspaper"></i> Artikel</button>
+                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="kontak" onclick="switchTab(event, 'kontak')"><i class="fa-solid fa-envelope"></i> Kontak</button>
             </nav>
 
             <div class="profile-pic-container">
-                <a href="https://wa.me/628999910186?text=Halo%20Pak%20Rusdiyanto,%20saya%20ingin%20berdiskusi%20seputar%20pendidikan." target="_blank" class="profile-pic-link" title="Chat WhatsApp Pak Rusdiyanto">
-                    <img src="foto/cs.jpeg" alt="Foto Profil Rusdiyanto" class="profile-pic">
+                <a href="https://wa.me/628999910186?text=Halo%20Pak%20Rusdiyanto,%20saya%20ingin%20berdiskusi%20seputar%20pendidikan." target="_blank" rel="noopener noreferrer" class="profile-pic-link" title="Chat WhatsApp Pak Rusdiyanto">
+                    <img src="foto/cs.jpeg" alt="Foto Profil Rusdiyanto" class="profile-pic" loading="lazy">
                     <span class="wa-pulse"></span>
                 </a>
             </div>
@@ -430,7 +435,7 @@
         </header>
 
         <main>
-            <div id="beranda" class="tab-content active">
+            <div id="beranda" class="tab-content active" role="tabpanel">
                 <h2>Assalamu'alaikum</h2>
                 <p>Selamat datang di ruang digital pengabdian saya. Blog ini dikelola sebagai wadah dokumentasi kegiatan belajar-mengajar, refleksi pendidikan, serta media berbagi sumber belajar interaktif bagi siswa dan rekan-rekan pendidik.</p>
                 
@@ -442,37 +447,37 @@
                 <p>Mari bersama-sama memajukan kualitas pendidikan dasar melalui inovasi pembelajaran yang menyenangkan dan berpusat pada peserta didik.</p>
             </div>
 
-            <div id="profil" class="tab-content">
+            <div id="profil" class="tab-content" role="tabpanel">
                 <h2>Profil Singkat</h2>
                 <p>Pendidik berdedikasi yang teguh percaya bahwa mengajar bukan sekadar menularkan ilmu di dalam kelas, melainkan proses hidup untuk menumbuhkan karakter, mengasah nalar kritis, dan menyalakan kecintaan abadi terhadap proses belajar. Dengan pengalaman panjang mendampingi tumbuh kembang peserta didik lintas jenjang, saya berkomitmen penuh untuk menghadirkan ruang kelas yang hangat, inklusif, dan sepenuhnya berpusat pada siswa.</p>
                 <p>Bagi saya, setiap anak adalah individu unik yang membawa potensi luar biasa. Oleh karena itu, pendekatan pembelajaran harus senantiasa dirancang agar bermakna, kontekstual, dan mampu mempersiapkan generasi masa depan yang tidak hanya cerdas secara intelektual, tetapi juga memiliki integritas, empati, serta ketangguhan mental dalam menghadapi tantangan zaman.</p>
             </div>
 
-            <div id="galeri" class="tab-content">
+            <div id="galeri" class="tab-content" role="tabpanel">
                 <h2>Galeri Kegiatan Pendidikan</h2>
                 <p>Dokumentasi aktivitas pembelajaran di sekolah maupun kegiatan luar sekolah yang mendukung dunia pendidikan:</p>
                 
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=400" alt="Kegiatan Belajar di Kelas" class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=400" alt="Kegiatan Belajar di Kelas" class="gallery-img" loading="lazy" width="400" height="120">
                         <div class="gallery-caption">Proses Belajar di Kelas</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=400" alt="Diskusi Kelompok Siswa" class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=400" alt="Diskusi Kelompok Siswa" class="gallery-img" loading="lazy" width="400" height="120">
                         <div class="gallery-caption">Diskusi Kelompok Siswa</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=400" alt="Pelatihan / Workshop Guru" class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=400" alt="Pelatihan / Workshop Guru" class="gallery-img" loading="lazy" width="400" height="120">
                         <div class="gallery-caption">Workshop & Pelatihan Guru</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=400" alt="Kegiatan Ekstrakurikuler" class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=400" alt="Kegiatan Ekstrakurikuler" class="gallery-img" loading="lazy" width="400" height="120">
                         <div class="gallery-caption">Kegiatan Sekolah</div>
                     </div>
                 </div>
             </div>
 
-            <div id="materi-ajar" class="tab-content">
+            <div id="materi-ajar" class="tab-content" role="tabpanel">
                 <h2>Materi & Perangkat Ajar</h2>
                 
                 <div class="grid-container">
@@ -482,7 +487,7 @@
                             <p>Modul konsep dasar hitung, pecahan, dan logika matematika awal hingga tinggi.</p>
                         </div>
                         <div class="card-actions">
-                            <a href="https://drive.google.com/file/d/1M2kLHgEs1qUPBd-l1wIXDIxZ0v9ywQDs/view?usp=sharing" target="_blank" class="link-btn"><i class="fa-solid fa-external-link-alt"></i> Buka Materi</a>
+                            <a href="https://drive.google.com/file/d/1M2kLHgEs1qUPBd-l1wIXDIxZ0v9ywQDs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="link-btn"><i class="fa-solid fa-external-link-alt"></i> Buka Materi</a>
                         </div>
                     </div>
 
@@ -492,8 +497,8 @@
                             <p>Rancangan kegiatan harian yang interaktif, fleksibel, dan berpusat pada peserta didik.</p>
                         </div>
                         <div class="card-actions">
-                            <a href="https://drive.google.com/drive/folders/1xfsm9zrVHNZdew3Y2k-xwDDH6CSlru4S?usp=sharing" target="_blank" class="link-btn">Kelas 4</a>
-                            <a href="https://drive.google.com/drive/folders/1IpOCpIpWsG3eKVfcKtvZoQSl4vdavR4I?usp=sharing" target="_blank" class="link-btn">Kelas 6</a>
+                            <a href="https://drive.google.com/drive/folders/1xfsm9zrVHNZdew3Y2k-xwDDH6CSlru4S?usp=sharing" target="_blank" rel="noopener noreferrer" class="link-btn">Kelas 4</a>
+                            <a href="https://drive.google.com/drive/folders/1IpOCpIpWsG3eKVfcKtvZoQSl4vdavR4I?usp=sharing" target="_blank" rel="noopener noreferrer" class="link-btn">Kelas 6</a>
                         </div>
                     </div>
 
@@ -503,18 +508,18 @@
                             <p>Rangkuman materi mencakup konsep dasar dikemas secara interaktif dan menyenangkan untuk setiap tingkat kelas.</p>
                         </div>
                         <div class="links-grid-compact">
-                            <a href="https://drive.google.com/drive/folders/1OqrZoVv663UOzpffuFQ-MyHQD5iRZHEy?usp=sharing" target="_blank" class="compact-btn">Kelas 1</a>
-                            <a href="https://drive.google.com/drive/folders/1h0Gw4jujZ5BrkD24Rl_yfg03B1FfakhR?usp=sharing" target="_blank" class="compact-btn">Kelas 2</a>
-                            <a href="https://drive.google.com/drive/folders/1zQ2hpYoQBTdU40CkqjWdhKXSekBnQpPg?usp=sharing" target="_blank" class="compact-btn">Kelas 3</a>
-                            <a href="https://drive.google.com/drive/folders/1h-p10zLnubcKD7qRtMt-4bo7ftefyL0k?usp=sharing" target="_blank" class="compact-btn">Kelas 4</a>
-                            <a href="https://drive.google.com/drive/folders/1i5RrMqgWvSnnYZGTJnyBNoBnk3vL4HjJ?usp=sharing" target="_blank" class="compact-btn">Kelas 5</a>
-                            <a href="https://drive.google.com/drive/folders/1DCITTEyh6hu15IsmlC2ZiXcR3Q-w0p6m?usp=sharing" target="_blank" class="compact-btn">Kelas 6</a>
+                            <a href="https://drive.google.com/drive/folders/1OqrZoVv663UOzpffuFQ-MyHQD5iRZHEy?usp=sharing" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 1</a>
+                            <a href="https://drive.google.com/drive/folders/1h0Gw4jujZ5BrkD24Rl_yfg03B1FfakhR?usp=sharing" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 2</a>
+                            <a href="https://drive.google.com/drive/folders/1zQ2hpYoQBTdU40CkqjWdhKXSekBnQpPg?usp=sharing" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 3</a>
+                            <a href="https://drive.google.com/drive/folders/1h-p10zLnubcKD7qRtMt-4bo7ftefyL0k?usp=sharing" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 4</a>
+                            <a href="https://drive.google.com/drive/folders/1i5RrMqgWvSnnYZGTJnyBNoBnk3vL4HjJ?usp=sharing" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 5</a>
+                            <a href="https://drive.google.com/drive/folders/1DCITTEyh6hu15IsmlC2ZiXcR3Q-w0p6m?usp=sharing" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 6</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="artikel" class="tab-content">
+            <div id="artikel" class="tab-content" role="tabpanel">
                 <h2>Artikel & Tautan Pendidikan</h2>
 
                 <div>
@@ -522,13 +527,13 @@
                     <div class="article-card">
                         <h4>Profil Resmi & Kegiatan Sekolah</h4>
                         <p>Informasi seputar kegiatan belajar mengajar, profil sekolah, dan galeri aktivitas siswa di SDN Seddur 1 Pakong.</p>
-                        <a href="https://ryanto23.github.io/sdnseddur1/" target="_blank" class="link-btn"><i class="fa-solid fa-globe"></i> Kunjungi Website</a>
+                        <a href="https://ryanto23.github.io/sdnseddur1/" target="_blank" rel="noopener noreferrer" class="link-btn"><i class="fa-solid fa-globe"></i> Kunjungi Website</a>
                     </div>
 
                     <h3>2. BUKU UNTUK SEMUA</h3>
                     <div class="article-card">
                         <h4>Akses Buku Resmi Kemendikdasmen melalui SIBI</h4>
-                        <a href="https://buku.kemendikdasmen.go.id/katalog" target="_blank" class="link-btn"><i class="fa-solid fa-book-bookmark"></i> Baca Katalog</a>
+                        <a href="https://buku.kemendikdasmen.go.id/katalog" target="_blank" rel="noopener noreferrer" class="link-btn"><i class="fa-solid fa-book-bookmark"></i> Baca Katalog</a>
                     </div>
 
                     <h3>3. Perangkat Ajar Pembelajaran Mendalam (Deep Learning)</h3>
@@ -536,18 +541,18 @@
                         <h4>Perangkat Lengkap Kelas 1 - 12</h4>
                         <p style="margin-bottom: 12px;">Akses cepat tautan perangkat pembelajaran deep learning berdasarkan jenjang kelas.</p>
                         <div class="links-grid-compact">
-                            <a href="https://s.id/Perangkat-Kelas-1" target="_blank" class="compact-btn">Kelas 1</a>
-                            <a href="https://s.id/Perangkat-Kelas-2" target="_blank" class="compact-btn">Kelas 2</a>
-                            <a href="https://s.id/Perangkat-Kelas-3" target="_blank" class="compact-btn">Kelas 3</a>
-                            <a href="https://s.id/Perangkat-Kelas-4" target="_blank" class="compact-btn">Kelas 4</a>
-                            <a href="https://s.id/Perangkat-Kelas-5" target="_blank" class="compact-btn">Kelas 5</a>
-                            <a href="https://s.id/Perangkat-Kelas-6" target="_blank" class="compact-btn">Kelas 6</a>
-                            <a href="https://s.id/Perangkat-Kelas-7" target="_blank" class="compact-btn">Kelas 7</a>
-                            <a href="https://s.id/Perangkat-Kelas-8" target="_blank" class="compact-btn">Kelas 8</a>
-                            <a href="https://s.id/Perangkat-Kelas-9" target="_blank" class="compact-btn">Kelas 9</a>
-                            <a href="https://s.id/Perangkat-Kelas-10" target="_blank" class="compact-btn">Kelas 10</a>
-                            <a href="https://s.id/Perangkat-Kelas-11" target="_blank" class="compact-btn">Kelas 11</a>
-                            <a href="https://s.id/Perangkat-Kelas-12" target="_blank" class="compact-btn">Kelas 12</a>
+                            <a href="https://s.id/Perangkat-Kelas-1" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 1</a>
+                            <a href="https://s.id/Perangkat-Kelas-2" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 2</a>
+                            <a href="https://s.id/Perangkat-Kelas-3" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 3</a>
+                            <a href="https://s.id/Perangkat-Kelas-4" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 4</a>
+                            <a href="https://s.id/Perangkat-Kelas-5" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 5</a>
+                            <a href="https://s.id/Perangkat-Kelas-6" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 6</a>
+                            <a href="https://s.id/Perangkat-Kelas-7" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 7</a>
+                            <a href="https://s.id/Perangkat-Kelas-8" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 8</a>
+                            <a href="https://s.id/Perangkat-Kelas-9" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 9</a>
+                            <a href="https://s.id/Perangkat-Kelas-10" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 10</a>
+                            <a href="https://s.id/Perangkat-Kelas-11" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 11</a>
+                            <a href="https://s.id/Perangkat-Kelas-12" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 12</a>
                         </div>
                     </div>
 
@@ -556,16 +561,16 @@
                         <h4>Operator Hebat, Data Akurat, Pendidikan Kuat</h4>
                         <p style="margin-bottom: 12px;">Tautan resmi pendukung manajemen data pendidikan dan GTK.</p>
                         <div class="links-grid-compact">
-                            <a href="https://dapo.kemendikdasmen.go.id/" target="_blank" class="compact-btn">Dapodik</a>
-                            <a href="https://info.gtk.kemendikdasmen.go.id/" target="_blank" class="compact-btn">Info GTK</a>
-                            <a href="https://sp.datadik.kemendikdasmen.go.id/" target="_blank" class="compact-btn">SP Sekolah</a>
-                            <a href="https://ptk.datadik.kemendikdasmen.go.id/" target="_blank" class="compact-btn">Manajemen PTK</a>
-                            <a href="https://akun.simpkb.id/" target="_blank" class="compact-btn">SimPKB</a>
-                            <a href="https://vervalpd.data.kemendikdasmen.go.id/" target="_blank" class="compact-btn">VervalPD</a>
-                            <a href="https://dashboardslb.kemendikdasmen.go.id/" target="_blank" class="compact-btn">Sulingjar</a>
-                            <a href="https://pip.kemendikdasmen.go.id/" target="_blank" class="compact-btn">PIP Beasiswa</a>
-                            <a href="https://tka.kemendikdasmen.go.id/" target="_blank" class="compact-btn">Login TKA</a>
-                            <a href="https://tka.onedumind.com/" target="_blank" class="compact-btn">Tryout TKA</a>
+                            <a href="https://dapo.kemendikdasmen.go.id/" target="_blank" rel="noopener noreferrer" class="compact-btn">Dapodik</a>
+                            <a href="https://info.gtk.kemendikdasmen.go.id/" target="_blank" rel="noopener noreferrer" class="compact-btn">Info GTK</a>
+                            <a href="https://sp.datadik.kemendikdasmen.go.id/" target="_blank" rel="noopener noreferrer" class="compact-btn">SP Sekolah</a>
+                            <a href="https://ptk.datadik.kemendikdasmen.go.id/" target="_blank" rel="noopener noreferrer" class="compact-btn">Manajemen PTK</a>
+                            <a href="https://akun.simpkb.id/" target="_blank" rel="noopener noreferrer" class="compact-btn">SimPKB</a>
+                            <a href="https://vervalpd.data.kemendikdasmen.go.id/" target="_blank" rel="noopener noreferrer" class="compact-btn">VervalPD</a>
+                            <a href="https://dashboardslb.kemendikdasmen.go.id/" target="_blank" rel="noopener noreferrer" class="compact-btn">Sulingjar</a>
+                            <a href="https://pip.kemendikdasmen.go.id/" target="_blank" rel="noopener noreferrer" class="compact-btn">PIP Beasiswa</a>
+                            <a href="https://tka.kemendikdasmen.go.id/" target="_blank" rel="noopener noreferrer" class="compact-btn">Login TKA</a>
+                            <a href="https://tka.onedumind.com/" target="_blank" rel="noopener noreferrer" class="compact-btn">Tryout TKA</a>
                         </div>
                     </div>
                     
@@ -573,7 +578,7 @@
                     <div class="article-card">
                         <h4>Panduan Sesuai Jenjang</h4>
                         <p>Kemendikdasmen telah menerbitkan Panduan Mata Pelajaran sebagai acuan bagi guru.</p>
-                        <a href="https://kurikulum.kemendikdasmen.go.id/panduan-mapel" target="_blank" class="link-btn"><i class="fa-solid fa-compass"></i> Kunjungi Panduan</a>
+                        <a href="https://kurikulum.kemendikdasmen.go.id/panduan-mapel" target="_blank" rel="noopener noreferrer" class="link-btn"><i class="fa-solid fa-compass"></i> Kunjungi Panduan</a>
                     </div>
 
                     <h3>6. Website Dunia Pendidikan Lainnya</h3>
@@ -581,18 +586,18 @@
                         <div class="article-card">
                             <h4>Platform Merdeka Mengajar (PMM)</h4>
                             <p>Media referensi guru untuk mengajar, belajar, dan berkarya dalam Kurikulum Merdeka.</p>
-                            <a href="https://guru.kemendikdasmen.go.id/" target="_blank" class="link-btn">Kunjungi PMM</a>
+                            <a href="https://guru.kemendikdasmen.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn">Kunjungi PMM</a>
                         </div>
                         <div class="article-card">
                             <h4>Rumah Belajar Kemendikbud</h4>
                             <p>Portal sumber belajar resmi yang menyediakan bahan ajar interaktif bagi siswa dan guru.</p>
-                            <a href="https://rumah.pendidikan.go.id/" target="_blank" class="link-btn">Kunjungi Sumber Belajar</a>
+                            <a href="https://rumah.pendidikan.go.id/" target="_blank" rel="noopener noreferrer" class="link-btn">Kunjungi Sumber Belajar</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="kontak" class="tab-content">
+            <div id="kontak" class="tab-content" role="tabpanel">
                 <h2>Hubungi Saya</h2>
                 <p>Terhubung dengan saya untuk keperluan diskusi seputar pendidikan, kolaborasi, maupun kritik dan saran yang membangun:</p>
                 <ul>
@@ -600,9 +605,9 @@
                 </ul>
 
                 <div class="contact-buttons">
-                    <a href="https://wa.me/628999910186?text=Halo%20Pak%20Rusdiyanto,%20saya%20ingin%20berdiskusi%20seputar%20pendidikan." target="_blank" class="link-btn whatsapp-btn"><i class="fa-brands fa-whatsapp"></i> Chat WhatsApp</a>
+                    <a href="https://wa.me/628999910186?text=Halo%20Pak%20Rusdiyanto,%20saya%20ingin%20berdiskusi%20seputar%20pendidikan." target="_blank" rel="noopener noreferrer" class="link-btn whatsapp-btn"><i class="fa-brands fa-whatsapp"></i> Chat WhatsApp</a>
                     <a href="mailto:r.yanto23@yahoo.com" class="link-btn email-btn"><i class="fa-solid fa-envelope"></i> Kirim Email</a>
-                    <a href="https://maps.app.goo.gl/uLuiHDnGvJYJTQNQ6?g_st=aw" target="_blank" class="link-btn maps-btn"><i class="fa-solid fa-location-dot"></i> Buka Lokasi Maps</a>
+                    <a href="https://maps.app.goo.gl/uLuiHDnGvJYJTQNQ6?g_st=aw" target="_blank" rel="noopener noreferrer" class="link-btn maps-btn"><i class="fa-solid fa-location-dot"></i> Buka Lokasi Maps</a>
                 </div>
             </div>
         </main>
@@ -618,10 +623,14 @@
             contents.forEach(content => content.classList.remove('active'));
 
             const buttons = document.querySelectorAll('.nav-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            });
 
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
+            event.currentTarget.setAttribute('aria-selected', 'true');
         }
     </script>
 </body>

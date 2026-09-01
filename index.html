@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Pendidik - SDN Seddur 1 Pakong</title>
+    <title>Profil Pendidik - SDN Seddur 1 Pakong | Rusdiyanto, S.Pd.</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="foto/cs.jpeg">
+
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSDY29NY6S"></script>
     <script>
@@ -15,10 +18,11 @@
       gtag('config', 'G-BSDY29NY6S');
     </script>
 
-    <!-- Meta Tags SEO & Open Graph untuk Pratinjau Sosial Media -->
-    <meta name="description" content="Profil resmi, perangkat ajar, materi numerasi, dan tautan pendidikan interaktif oleh Rusdiyanto, S.Pd. - Pendidik SDN Seddur 1 Pakong.">
+    <!-- Meta Tags SEO & Open Graph yang Dioptimalkan -->
+    <meta name="description" content="Profil resmi, perangkat ajar, materi numerasi, lembar kerja, refleksi pendidikan, dan tautan interaktif oleh Rusdiyanto, S.Pd., pendidik di SDN Seddur 1 Pakong, Pamekasan.">
+    <meta name="keywords" content="Rusdiyanto, SDN Seddur 1 Pakong, Perangkat Ajar, Numerasi, Literasi, Kurikulum Merdeka, Pendidik Pamekasan">
     <meta property="og:title" content="Profil Pendidik - Rusdiyanto, S.Pd.">
-    <meta property="og:description" content="Wadah dokumentasi, refleksi pendidikan, dan sumber belajar interaktif pendidik SDN Seddur 1 Pakong.">
+    <meta property="og:description" content="Wadah dokumentasi, refleksi pendidikan, praktik baik, dan sumber belajar interaktif pendidik SDN Seddur 1 Pakong.">
     <meta property="og:image" content="foto/cs.jpeg">
     <meta property="og:type" content="website">
 
@@ -77,7 +81,7 @@
         .nav-menu {
             display: flex;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             margin-bottom: 25px;
             flex-wrap: wrap;
             background: rgba(0, 0, 0, 0.15);
@@ -89,9 +93,9 @@
         .nav-btn {
             color: #ffffff;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 500;
-            padding: 8px 16px;
+            padding: 8px 14px;
             background: transparent;
             border-radius: 20px;
             transition: all 0.3s ease;
@@ -373,6 +377,42 @@
         .maps-btn { background: #ea4335; }
         .maps-btn:hover { background: #c53727; }
 
+        /* Style untuk Formulir Pesan Sederhana */
+        .contact-form {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
         strong {
             color: var(--primary);
             font-weight: 600;
@@ -427,8 +467,9 @@
                 <button class="nav-btn active" role="tab" aria-selected="true" aria-controls="beranda" onclick="switchTab(event, 'beranda')"><i class="fa-solid fa-house"></i> Beranda</button>
                 <button class="nav-btn" role="tab" aria-selected="false" aria-controls="profil" onclick="switchTab(event, 'profil')"><i class="fa-solid fa-user-tie"></i> Profil</button>
                 <button class="nav-btn" role="tab" aria-selected="false" aria-controls="galeri" onclick="switchTab(event, 'galeri')"><i class="fa-solid fa-images"></i> Galeri</button>
-                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="materi-ajar" onclick="switchTab(event, 'materi-ajar')"><i class="fa-solid fa-book-open"></i> Materi Ajar</button>
-                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="artikel" onclick="switchTab(event, 'artikel')"><i class="fa-solid fa-newspaper"></i> Artikel</button>
+                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="materi-ajar" onclick="switchTab(event, 'materi-ajar')"><i class="fa-solid fa-book-open"></i> Materi</button>
+                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="refleksi" onclick="switchTab(event, 'refleksi')"><i class="fa-solid fa-pen-nib"></i> Refleksi</button>
+                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="artikel" onclick="switchTab(event, 'artikel')"><i class="fa-solid fa-newspaper"></i> Tautan</button>
                 <button class="nav-btn" role="tab" aria-selected="false" aria-controls="kontak" onclick="switchTab(event, 'kontak')"><i class="fa-solid fa-envelope"></i> Kontak</button>
             </nav>
 
@@ -493,8 +534,8 @@
                 <div class="grid-container">
                     <div class="article-card">
                         <div>
-                            <h4><i class="fa-solid fa-calculator"></i> Numerasi</h4>
-                            <p>Modul konsep dasar hitung, pecahan, dan logika matematika awal hingga tinggi.</p>
+                            <h4><i class="fa-solid fa-calculator"></i> Numerasi & LKPD</h4>
+                            <p>Modul konsep dasar hitung, pecahan, lembar kerja, dan logika matematika awal hingga tinggi.</p>
                         </div>
                         <div class="card-actions">
                             <a href="https://drive.google.com/file/d/1M2kLHgEs1qUPBd-l1wIXDIxZ0v9ywQDs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="link-btn"><i class="fa-solid fa-external-link-alt"></i> Buka Materi</a>
@@ -525,6 +566,27 @@
                             <a href="https://drive.google.com/drive/folders/1i5RrMqgWvSnnYZGTJnyBNoBnk3vL4HjJ?usp=sharing" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 5</a>
                             <a href="https://drive.google.com/drive/folders/1DCITTEyh6hu15IsmlC2ZiXcR3Q-w0p6m?usp=sharing" target="_blank" rel="noopener noreferrer" class="compact-btn">Kelas 6</a>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bagian Baru: Refleksi & Praktik Baik Pendidik -->
+            <div id="refleksi" class="tab-content" role="tabpanel">
+                <h2>Refleksi & Praktik Baik Pembelajaran</h2>
+                <p>Kumpulan catatan pengalaman mengajar, opini, serta strategi penanganan tantangan kelas di SDN Seddur 1 Pakong:</p>
+
+                <div class="grid-container">
+                    <div class="article-card">
+                        <h4>Membangun Minat Numerasi Melalui Permainan Kontekstual</h4>
+                        <p>Bagaimana cara membuat siswa menyukai matematika dasar dengan memanfaatkan benda-benda nyata di sekitar lingkungan sekolah.</p>
+                        <span style="font-size: 11px; color: var(--text-muted); margin-bottom: 10px; display: block;"><i class="fa-regular fa-calendar"></i> Februari 2026</span>
+                        <a href="https://wa.me/628999910186?text=Halo%20Pak%20Rusdiyanto,%20saya%20tertarik%20membahas%20artikel%20numerasi." target="_blank" rel="noopener noreferrer" class="link-btn">Diskusikan via WA</a>
+                    </div>
+                    <div class="article-card">
+                        <h4>Penerapan Pembelajaran Mendalam (Deep Learning) di SD</h4>
+                        <p>Catatan reflektif dalam mengimplementasikan konsep bermakna agar peserta didik tidak hanya menghafal, melainkan memahami konsep.</p>
+                        <span style="font-size: 11px; color: var(--text-muted); margin-bottom: 10px; display: block;"><i class="fa-regular fa-calendar"></i> Januari 2026</span>
+                        <a href="https://wa.me/628999910186?text=Halo%20Pak%20Rusdiyanto,%20saya%20ingin%20berbagi%20tentang%20deep%20learning." target="_blank" rel="noopener noreferrer" class="link-btn">Diskusikan via WA</a>
                     </div>
                 </div>
             </div>
@@ -619,6 +681,21 @@
                     <a href="mailto:r.yanto23@yahoo.com" class="link-btn email-btn"><i class="fa-solid fa-envelope"></i> Kirim Email</a>
                     <a href="https://maps.app.goo.gl/uLuiHDnGvJYJTQNQ6?g_st=aw" target="_blank" rel="noopener noreferrer" class="link-btn maps-btn"><i class="fa-solid fa-location-dot"></i> Buka Lokasi Maps</a>
                 </div>
+
+                <!-- Formulir Pesan/Buku Tamu Sederhana (Redirect WhatsApp) -->
+                <div class="contact-form">
+                    <h3>Kirim Pesan / Buku Tamu Cepat</h3>
+                    <p style="font-size: 12px; margin-bottom: 12px;">Pesan ini akan langsung terhubung ke WhatsApp Pak Rusdiyanto.</p>
+                    <div class="form-group">
+                        <label for="namaTamu">Nama Anda:</label>
+                        <input type="text" id="namaTamu" class="form-control" placeholder="Masukkan nama lengkap...">
+                    </div>
+                    <div class="form-group">
+                        <label for="pesanTamu">Pesan / Masukan:</label>
+                        <textarea id="pesanTamu" class="form-control" rows="3" placeholder="Tulis pesan atau pertanyaan..."></textarea>
+                    </div>
+                    <button type="button" class="link-btn whatsapp-btn" onclick="kirimPesanWhatsApp()"><i class="fa-brands fa-whatsapp"></i> Kirim Pesan via WhatsApp</button>
+                </div>
             </div>
         </main>
 
@@ -641,6 +718,20 @@
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
             event.currentTarget.setAttribute('aria-selected', 'true');
+        }
+
+        function kirimPesanWhatsApp() {
+            const nama = document.getElementById('namaTamu').value.trim();
+            const pesan = document.getElementById('pesanTamu').value.trim();
+            
+            if(!nama || !pesan) {
+                alert('Mohon isi nama dan pesan terlebih dahulu!');
+                return;
+            }
+
+            const textFmt = `Halo Pak Rusdiyanto, nama saya ${nama}. Pesan saya: ${pesan}`;
+            const encodedUrl = `https://wa.me/628999910186?text=${encodeURIComponent(textFmt)}`;
+            window.open(encodedUrl, '_blank');
         }
     </script>
 </body>

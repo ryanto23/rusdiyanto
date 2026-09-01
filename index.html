@@ -96,7 +96,7 @@
             font-size: 12px;
             font-weight: 500;
             padding: 8px 14px;
-            background: transparent;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             transition: all 0.3s ease;
             border: none;
@@ -107,14 +107,25 @@
         }
 
         .nav-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
+            opacity: 0.9;
+            transform: translateY(-1px);
         }
 
+        /* Warna Kustom untuk Setiap Menu */
+        .nav-btn.menu-beranda { background: #1e3a8a; } /* Biru Tua */
+        .nav-btn.menu-profil { background: #0d9488; } /* Toska */
+        .nav-btn.menu-galeri { background: #d97706; } /* Jingga / Amber */
+        .nav-btn.menu-materi { background: #7c3aed; } /* Ungu */
+        .nav-btn.menu-youtube { background: #dc2626; } /* Merah */
+        .nav-btn.menu-refleksi { background: #059669; } /* Hijau Emerald */
+        .nav-btn.menu-tautan { background: #2563eb; } /* Biru Terang */
+        .nav-btn.menu-kontak { background: #4f46e5; } /* Indigo */
+
         .nav-btn.active {
-            background: #ffffff;
-            color: var(--primary);
+            background: #ffffff !important;
+            color: var(--primary) !important;
             font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .profile-pic-container {
@@ -469,16 +480,16 @@
 
     <div class="container">
         <header>
-            <!-- Navigasi Menu Ditambahkan Tombol YouTube -->
+            <!-- Navigasi Menu dengan Warna Berbeda untuk Setiap Tombol -->
             <nav class="nav-menu" role="tablist">
-                <button class="nav-btn active" role="tab" aria-selected="true" aria-controls="beranda" onclick="switchTab(event, 'beranda')"><i class="fa-solid fa-house"></i> Beranda</button>
-                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="profil" onclick="switchTab(event, 'profil')"><i class="fa-solid fa-user-tie"></i> Profil</button>
-                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="galeri" onclick="switchTab(event, 'galeri')"><i class="fa-solid fa-images"></i> Galeri</button>
-                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="materi-ajar" onclick="switchTab(event, 'materi-ajar')"><i class="fa-solid fa-book-open"></i> Materi</button>
-                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="youtube" onclick="switchTab(event, 'youtube')"><i class="fa-brands fa-youtube"></i> YouTube</button>
-                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="refleksi" onclick="switchTab(event, 'refleksi')"><i class="fa-solid fa-pen-nib"></i> Refleksi</button>
-                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="artikel" onclick="switchTab(event, 'artikel')"><i class="fa-solid fa-newspaper"></i> Tautan</button>
-                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="kontak" onclick="switchTab(event, 'kontak')"><i class="fa-solid fa-envelope"></i> Kontak</button>
+                <button class="nav-btn menu-beranda active" role="tab" aria-selected="true" aria-controls="beranda" onclick="switchTab(event, 'beranda')"><i class="fa-solid fa-house"></i> Beranda</button>
+                <button class="nav-btn menu-profil" role="tab" aria-selected="false" aria-controls="profil" onclick="switchTab(event, 'profil')"><i class="fa-solid fa-user-tie"></i> Profil</button>
+                <button class="nav-btn menu-galeri" role="tab" aria-selected="false" aria-controls="galeri" onclick="switchTab(event, 'galeri')"><i class="fa-solid fa-images"></i> Galeri</button>
+                <button class="nav-btn menu-materi" role="tab" aria-selected="false" aria-controls="materi-ajar" onclick="switchTab(event, 'materi-ajar')"><i class="fa-solid fa-book-open"></i> Materi</button>
+                <button class="nav-btn menu-youtube" role="tab" aria-selected="false" aria-controls="youtube" onclick="switchTab(event, 'youtube')"><i class="fa-brands fa-youtube"></i> YouTube</button>
+                <button class="nav-btn menu-refleksi" role="tab" aria-selected="false" aria-controls="refleksi" onclick="switchTab(event, 'refleksi')"><i class="fa-solid fa-pen-nib"></i> Refleksi</button>
+                <button class="nav-btn menu-tautan" role="tab" aria-selected="false" aria-controls="artikel" onclick="switchTab(event, 'artikel')"><i class="fa-solid fa-newspaper"></i> Tautan</button>
+                <button class="nav-btn menu-kontak" role="tab" aria-selected="false" aria-controls="kontak" onclick="switchTab(event, 'kontak')"><i class="fa-solid fa-envelope"></i> Kontak</button>
             </nav>
 
             <div class="profile-pic-container">

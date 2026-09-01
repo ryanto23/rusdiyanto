@@ -719,19 +719,29 @@
             event.currentTarget.setAttribute('aria-selected', 'true');
         }
 
-        function kirimPesanWhatsApp() {
-            const nama = document.getElementById('namaTamu').value.trim();
-            const pesan = document.getElementById('pesanTamu').value.trim();
-            
-            if(!nama || !pesan) {
-                alert('Mohon isi nama dan pesan terlebih dahulu!');
-                return;
-            }
+       function kirimPesanWhatsApp() {
+    const namaInput = document.getElementById('namaTamu');
+    const pesanInput = document.getElementById('pesanTamu');
+    
+    const nama = namaInput ? namaInput.value.trim() : '';
+    const pesan = pesanInput ? pesanInput.value.trim() : '';
+    
+    // Validasi: Cek apakah kosong
+    if(!nama || !pesan) {
+        alert('Mohon isi nama dan pesan terlebih dahulu secara lengkap!');
+        return;
+    }
 
-            const textFmt = `Halo Pak Rusdiyanto, nama saya ${nama}. Pesan saya: ${pesan}`;
-            const encodedUrl = `https://wa.me/628999910186?text=${encodeURIComponent(textFmt)}`;
-            window.open(encodedUrl, '_blank');
-        }
+    // Validasi tambahan: Cegah teks terlalu pendek atau asal-asalan (minimal 3 karakter)
+    if(nama.length < 3 || pesan.length < 5) {
+        alert('Nama minimal 3 karakter dan pesan minimal 5 karakter untuk menghindari spam.');
+        return;
+    }
+
+    const textFmt = `Halo Pak Rusdiyanto, perkenalkan saya ${nama}. Pesan saya: ${pesan}`;
+    const encodedUrl = `https://wa.me/628999910186?text=${encodeURIComponent(textFmt)}`;
+    window.open(encodedUrl, '_blank');
+}
     </script>
 </body>
 </html>

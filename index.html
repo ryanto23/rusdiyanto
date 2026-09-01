@@ -277,6 +277,14 @@
             background: var(--primary);
         }
 
+        /* Tombol Khusus YouTube */
+        .youtube-btn {
+            background: #ff0000;
+        }
+        .youtube-btn:hover {
+            background: #cc0000;
+        }
+
         .links-grid-compact {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -377,7 +385,6 @@
         .maps-btn { background: #ea4335; }
         .maps-btn:hover { background: #c53727; }
 
-        /* Style untuk Formulir Pesan Sederhana */
         .contact-form {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
@@ -462,12 +469,13 @@
 
     <div class="container">
         <header>
-            <!-- Navigasi dengan ARIA Attributes untuk Aksesibilitas Screen Reader -->
+            <!-- Navigasi Menu Ditambahkan Tombol YouTube -->
             <nav class="nav-menu" role="tablist">
                 <button class="nav-btn active" role="tab" aria-selected="true" aria-controls="beranda" onclick="switchTab(event, 'beranda')"><i class="fa-solid fa-house"></i> Beranda</button>
                 <button class="nav-btn" role="tab" aria-selected="false" aria-controls="profil" onclick="switchTab(event, 'profil')"><i class="fa-solid fa-user-tie"></i> Profil</button>
                 <button class="nav-btn" role="tab" aria-selected="false" aria-controls="galeri" onclick="switchTab(event, 'galeri')"><i class="fa-solid fa-images"></i> Galeri</button>
                 <button class="nav-btn" role="tab" aria-selected="false" aria-controls="materi-ajar" onclick="switchTab(event, 'materi-ajar')"><i class="fa-solid fa-book-open"></i> Materi</button>
+                <button class="nav-btn" role="tab" aria-selected="false" aria-controls="youtube" onclick="switchTab(event, 'youtube')"><i class="fa-brands fa-youtube"></i> YouTube</button>
                 <button class="nav-btn" role="tab" aria-selected="false" aria-controls="refleksi" onclick="switchTab(event, 'refleksi')"><i class="fa-solid fa-pen-nib"></i> Refleksi</button>
                 <button class="nav-btn" role="tab" aria-selected="false" aria-controls="artikel" onclick="switchTab(event, 'artikel')"><i class="fa-solid fa-newspaper"></i> Tautan</button>
                 <button class="nav-btn" role="tab" aria-selected="false" aria-controls="kontak" onclick="switchTab(event, 'kontak')"><i class="fa-solid fa-envelope"></i> Kontak</button>
@@ -570,7 +578,44 @@
                 </div>
             </div>
 
-            <!-- Bagian Baru: Refleksi & Praktik Baik Pendidik -->
+            <!-- Tab Menu YouTube Baru -->
+            <div id="youtube" class="tab-content" role="tabpanel">
+                <h2>Video & Link Pembelajaran YouTube</h2>
+                <p>Kumpulan tautan video pembelajaran interaktif, materi penjelasan konsep, serta video edukasi pilihan untuk mendampingi proses belajar siswa:</p>
+                
+                <div class="grid-container">
+                    <div class="article-card">
+                        <div>
+                            <h4><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> Pembelajaran Numerasi Dasar</h4>
+                            <p>Video pembahasan konsep hitung cepat dan logika matematika yang menyenangkan untuk tingkat sekolah dasar.</p>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="link-btn youtube-btn"><i class="fa-solid fa-play"></i> Tonton Video</a>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div>
+                            <h4><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> Praktik Baik Kurikulum Merdeka</h4>
+                            <p>Dokumentasi video penerapan pembelajaran berdiferensiasi dan projek penguatan profil pelajar Pancasila.</p>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="link-btn youtube-btn"><i class="fa-solid fa-play"></i> Tonton Video</a>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div>
+                            <h4><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> Literasi & Dongeng Edukatif</h4>
+                            <p>Kumpulan cerita pendek bermoral dan konten pengayaan literasi bahasa Indonesia bagi peserta didik.</p>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="link-btn youtube-btn"><i class="fa-solid fa-play"></i> Tonton Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="refleksi" class="tab-content" role="tabpanel">
                 <h2>Refleksi & Praktik Baik Pembelajaran</h2>
                 <p>Kumpulan catatan pengalaman mengajar, opini, serta strategi penanganan tantangan kelas di SDN Seddur 1 Pakong:</p>
@@ -726,13 +771,11 @@
             const nama = namaInput ? namaInput.value.trim() : '';
             const pesan = pesanInput ? pesanInput.value.trim() : '';
             
-            // Validasi: Cek apakah kosong
             if(!nama || !pesan) {
                 alert('Mohon isi nama dan pesan terlebih dahulu secara lengkap!');
                 return;
             }
 
-            // Validasi tambahan: Cegah teks terlalu pendek atau asal-asalan (minimal 3 karakter)
             if(nama.length < 3 || pesan.length < 5) {
                 alert('Nama minimal 3 karakter dan pesan minimal 5 karakter untuk menghindari spam.');
                 return;

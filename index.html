@@ -580,7 +580,7 @@
                 <p>Bagi saya, setiap anak adalah individu unik yang membawa potensi luar biasa. Oleh karena itu, pendekatan pembelajaran harus senantiasa dirancang agar bermakna, kontekstual, dan mampu mempersiapkan generasi masa depan yang tidak hanya cerdas secara intelektual, tetapi juga memiliki integritas, empati, serta ketangguhan mental dalam menghadapi tantangan zaman.</p>
             </div>
 
-            <!-- Konten Tambahan untuk Sub Menu PID -->
+            <!-- Konten Tab untuk Sub Menu PID -->
             <div id="pid-1" class="tab-content" role="tabpanel">
                 <h2>Sub Menu PID 1</h2>
                 <p>Informasi atau konten yang berkaitan dengan Sub Menu PID 1.</p>
@@ -880,9 +880,21 @@
                 btn.setAttribute('aria-selected', 'false');
             });
 
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-            event.currentTarget.setAttribute('aria-selected', 'true');
+            // Juga hapus status aktif dari tombol dropdown jika sub-menu dipilih
+            const dropdownButtons = document.querySelectorAll('.dropdown-content button');
+            dropdownButtons.forEach(db => db.classList.remove('active'));
+
+            const targetContent = document.getElementById(tabId);
+            if(targetContent) {
+                targetContent.classList.add('active');
+            }
+            
+            if(event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+                if(event.currentTarget.hasAttribute('aria-selected')) {
+                    event.currentTarget.setAttribute('aria-selected', 'true');
+                }
+            }
         }
 
         // Fungsi khusus dropdown menu PID

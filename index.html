@@ -114,7 +114,6 @@
         /* Warna Kustom untuk Setiap Menu */
         .nav-btn.menu-beranda { background: #1e3a8a; } /* Biru Tua */
         .nav-btn.menu-profil { background: #0d9488; } /* Toska */
-        .nav-btn.menu-pid { background: #0891b2; } /* Cyan / Biru Laut untuk PID */
         .nav-btn.menu-galeri { background: #d97706; } /* Jingga / Amber */
         .nav-btn.menu-materi { background: #7c3aed; } /* Ungu */
         .nav-btn.menu-youtube { background: #dc2626; } /* Merah */
@@ -126,52 +125,6 @@
             color: var(--primary) !important;
             font-weight: 600;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Styling Dropdown PID */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #ffffff;
-            min-width: 180px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-            z-index: 100;
-            border-radius: 12px;
-            overflow: hidden;
-            top: 110%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 1px solid #e2e8f0;
-            text-align: left;
-        }
-
-        .dropdown-content button {
-            color: var(--text-main);
-            padding: 10px 14px;
-            text-decoration: none;
-            display: block;
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-size: 12px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .dropdown-content button:hover {
-            background-color: #f1f5f9;
-            color: var(--primary);
-        }
-
-        .dropdown.show .dropdown-content {
-            display: block;
         }
 
         .profile-pic-container {
@@ -526,22 +479,10 @@
 
     <div class="container">
         <header>
-            <!-- Navigasi Menu dengan Dropdown PID -->
+            <!-- Navigasi Menu Tanpa Refleksi -->
             <nav class="nav-menu" role="tablist">
                 <button class="nav-btn menu-beranda active" role="tab" aria-selected="true" aria-controls="beranda" onclick="switchTab(event, 'beranda')"><i class="fa-solid fa-house"></i> Beranda</button>
                 <button class="nav-btn menu-profil" role="tab" aria-selected="false" aria-controls="profil" onclick="switchTab(event, 'profil')"><i class="fa-solid fa-user-tie"></i> Profil</button>
-                
-                <!-- Menu Dropdown PID -->
-                <div class="dropdown" id="pidDropdown">
-                    <button class="nav-btn menu-pid" onclick="toggleDropdown(event)"><i class="fa-solid fa-folder-tree"></i> PID <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></button>
-                    <div class="dropdown-content">
-                        <button onclick="switchTabAndClose(event, 'pid-1')">Sub Menu PID 1</button>
-                        <button onclick="switchTabAndClose(event, 'pid-2')">Sub Menu PID 2</button>
-                        <button onclick="switchTabAndClose(event, 'pid-3')">Sub Menu PID 3</button>
-                        <button onclick="switchTabAndClose(event, 'pid-4')">Sub Menu PID 4</button>
-                    </div>
-                </div>
-
                 <button class="nav-btn menu-galeri" role="tab" aria-selected="false" aria-controls="galeri" onclick="switchTab(event, 'galeri')"><i class="fa-solid fa-images"></i> Galeri</button>
                 <button class="nav-btn menu-materi" role="tab" aria-selected="false" aria-controls="materi-ajar" onclick="switchTab(event, 'materi-ajar')"><i class="fa-solid fa-book-open"></i> Materi</button>
                 <button class="nav-btn menu-youtube" role="tab" aria-selected="false" aria-controls="youtube" onclick="switchTab(event, 'youtube')"><i class="fa-brands fa-youtube"></i> YouTube</button>
@@ -578,27 +519,6 @@
                 <h2>Profil Singkat</h2>
                 <p>Pendidik percaya bahwa mengajar bukan sekadar menularkan ilmu di dalam kelas, melainkan proses hidup untuk menumbuhkan karakter, mengasah nalar kritis, dan menyalakan kecintaan abadi terhadap proses belajar. Dengan pengalaman panjang mendampingi tumbuh kembang peserta didik lintas jenjang, saya berkomitmen penuh untuk menghadirkan ruang kelas yang hangat, inklusif, dan sepenuhnya berpusat pada siswa.</p>
                 <p>Bagi saya, setiap anak adalah individu unik yang membawa potensi luar biasa. Oleh karena itu, pendekatan pembelajaran harus senantiasa dirancang agar bermakna, kontekstual, dan mampu mempersiapkan generasi masa depan yang tidak hanya cerdas secara intelektual, tetapi juga memiliki integritas, empati, serta ketangguhan mental dalam menghadapi tantangan zaman.</p>
-            </div>
-
-            <!-- Konten Tab untuk Sub Menu PID -->
-            <div id="pid-1" class="tab-content" role="tabpanel">
-                <h2>Sub Menu PID 1</h2>
-                <p>Informasi atau konten yang berkaitan dengan Sub Menu PID 1.</p>
-            </div>
-
-            <div id="pid-2" class="tab-content" role="tabpanel">
-                <h2>Sub Menu PID 2</h2>
-                <p>Informasi atau konten yang berkaitan dengan Sub Menu PID 2.</p>
-            </div>
-
-            <div id="pid-3" class="tab-content" role="tabpanel">
-                <h2>Sub Menu PID 3</h2>
-                <p>Informasi atau konten yang berkaitan dengan Sub Menu PID 3.</p>
-            </div>
-
-            <div id="pid-4" class="tab-content" role="tabpanel">
-                <h2>Sub Menu PID 4</h2>
-                <p>Informasi atau konten yang berkaitan dengan Sub Menu PID 4.</p>
             </div>
 
             <div id="galeri" class="tab-content" role="tabpanel">
@@ -651,25 +571,26 @@
                     </div>
 
                     <div class="article-card">
-                        <div>
-                            <h4><i class="fa-solid fa-clipboard-question"></i> Bank Soal</h4>
-                            <p>Kumpulan soal latihan, evaluasi harian, dan asesmen untuk menguji pemahaman peserta didik.</p>
-                        </div>
-                        <div class="card-actions">
-                            <a href="https://latihansoalonline.com/sd/kelas1.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 1</a>
-                            <a href="https://latihansoalonline.com/sd/kelas2.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 2</a>
-                            <a href="https://latihansoalonline.com/sd/kelas3.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 3</a>
-                            <a href="https://latihansoalonline.com/sd/kelas4.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 4</a>
-                            <a href="https://latihansoalonline.com/sd/kelas5.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 5</a>
-                            <a href="https://latihansoalonline.com/sd/kelas6.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 6</a>
-                            <a href="https://latihansoalonline.com/smp/kelas7.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 7</a>
-                            <a href="https://latihansoalonline.com/smp/kelas8.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 8</a>
-                            <a href="https://latihansoalonline.com/smp/kelas9.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 9</a>
-                            <a href="https://latihansoalonline.com/sma/kelas10.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 10</a>
-                            <a href="https://latihansoalonline.com/sma/kelas11.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 11</a>
-                            <a href="https://latihansoalonline.com/sma/kelas12.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 12</a>
-                        </div>
-                    </div>
+    <div>
+        <h4><i class="fa-solid fa-clipboard-question"></i> Bank Soal</h4>
+        <p>Kumpulan soal latihan, evaluasi harian, dan asesmen untuk menguji pemahaman peserta didik.</p>
+    </div>
+    <div class="card-actions">
+             <a href="https://latihansoalonline.com/sd/kelas1.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 1</a>
+            <a href="https://latihansoalonline.com/sd/kelas2.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 2</a>
+            <a href="https://latihansoalonline.com/sd/kelas3.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 3</a>
+            <a href="https://latihansoalonline.com/sd/kelas4.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 4</a>
+             <a href="https://latihansoalonline.com/sd/kelas5.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 5</a>
+            <a href="https://latihansoalonline.com/sd/kelas6.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 6</a>
+             <a href="https://latihansoalonline.com/smp/kelas7.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 7</a>
+            <a href="https://latihansoalonline.com/smp/kelas8.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 8</a>
+             <a href="https://latihansoalonline.com/smp/kelas9.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 9</a>
+            <a href="https://latihansoalonline.com/sma/kelas10.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 10</a>
+             <a href="https://latihansoalonline.com/sma/kelas11.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 11</a>
+            <a href="https://latihansoalonline.com/sma/kelas12.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 12</a>
+        </a>
+    </div>
+</div>
 
                     <div class="article-card" style="grid-column: 1 / -1;">
                         <div>
@@ -853,6 +774,8 @@
             </div>
         </main>
 
+        </main>
+
     <!-- Kotak Dukungan Saweria -->
     <div style="text-align: center; margin: 30px auto; padding: 25px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; max-width: 900px; width: 92%;">
         <h3 style="color: #1e293b; font-size: 18px; margin-bottom: 8px;">Dukung Pengembangan Blog Ini</h3>
@@ -880,46 +803,9 @@
                 btn.setAttribute('aria-selected', 'false');
             });
 
-            // Juga hapus status aktif dari tombol dropdown jika sub-menu dipilih
-            const dropdownButtons = document.querySelectorAll('.dropdown-content button');
-            dropdownButtons.forEach(db => db.classList.remove('active'));
-
-            const targetContent = document.getElementById(tabId);
-            if(targetContent) {
-                targetContent.classList.add('active');
-            }
-            
-            if(event && event.currentTarget) {
-                event.currentTarget.classList.add('active');
-                if(event.currentTarget.hasAttribute('aria-selected')) {
-                    event.currentTarget.setAttribute('aria-selected', 'true');
-                }
-            }
-        }
-
-        // Fungsi khusus dropdown menu PID
-        function toggleDropdown(event) {
-            event.stopPropagation();
-            const dropdown = document.getElementById('pidDropdown');
-            dropdown.classList.toggle('show');
-        }
-
-        function switchTabAndClose(event, tabId) {
-            switchTab(event, tabId);
-            document.getElementById('pidDropdown').classList.remove('show');
-        }
-
-        // Menutup dropdown jika pengguna mengklik di luar area menu
-        window.onclick = function(event) {
-            if (!event.target.closest('#pidDropdown')) {
-                const dropdowns = document.getElementsByClassName("dropdown");
-                for (let i = 0; i < dropdowns.length; i++) {
-                    let openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+            event.currentTarget.setAttribute('aria-selected', 'true');
         }
 
         function kirimPesanWhatsApp() {

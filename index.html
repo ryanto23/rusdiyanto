@@ -114,7 +114,7 @@
         /* Warna Kustom untuk Setiap Menu */
         .nav-btn.menu-beranda { background: #1e3a8a; } /* Biru Tua */
         .nav-btn.menu-profil { background: #0d9488; } /* Toska */
-        .nav-btn.menu-pid { background: #0891b2; } /* Cyan / Biru Laut untuk PID */
+        .nav-btn.menu-pid { background: #0891b2; } /* Cyan untuk PID */
         .nav-btn.menu-galeri { background: #d97706; } /* Jingga / Amber */
         .nav-btn.menu-materi { background: #7c3aed; } /* Ungu */
         .nav-btn.menu-youtube { background: #dc2626; } /* Merah */
@@ -306,18 +306,18 @@
         .compact-btn {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 6px;
+            justify-content: flex-start;
+            gap: 8px;
             background: #ffffff;
             color: var(--primary);
             border: 1px solid #cbd5e1;
-            padding: 8px 10px;
-            font-size: 12px;
+            padding: 10px 14px;
+            font-size: 13px;
             font-weight: 500;
             text-decoration: none;
             border-radius: 8px;
             transition: all 0.2s;
-            text-align: center;
+            text-align: left;
         }
 
         .compact-btn:hover {
@@ -480,11 +480,11 @@
 
     <div class="container">
         <header>
-            <!-- Navigasi Menu dengan PID -->
+            <!-- Navigasi Menu Atas -->
             <nav class="nav-menu" role="tablist">
                 <button class="nav-btn menu-beranda active" role="tab" aria-selected="true" aria-controls="beranda" onclick="switchTab(event, 'beranda')"><i class="fa-solid fa-house"></i> Beranda</button>
                 <button class="nav-btn menu-profil" role="tab" aria-selected="false" aria-controls="profil" onclick="switchTab(event, 'profil')"><i class="fa-solid fa-user-tie"></i> Profil</button>
-                <button class="nav-btn menu-pid" role="tab" aria-selected="false" aria-controls="pid" onclick="switchTab(event, 'pid')"><i class="fa-solid fa-link"></i> PID</button>
+                <button class="nav-btn menu-pid" role="tab" aria-selected="false" aria-controls="pid" onclick="switchTab(event, 'pid')"><i class="fa-solid fa-gamepad"></i> PID</button>
                 <button class="nav-btn menu-galeri" role="tab" aria-selected="false" aria-controls="galeri" onclick="switchTab(event, 'galeri')"><i class="fa-solid fa-images"></i> Galeri</button>
                 <button class="nav-btn menu-materi" role="tab" aria-selected="false" aria-controls="materi-ajar" onclick="switchTab(event, 'materi-ajar')"><i class="fa-solid fa-book-open"></i> Materi</button>
                 <button class="nav-btn menu-youtube" role="tab" aria-selected="false" aria-controls="youtube" onclick="switchTab(event, 'youtube')"><i class="fa-brands fa-youtube"></i> YouTube</button>
@@ -523,40 +523,31 @@
                 <p>Bagi saya, setiap anak adalah individu unik yang membawa potensi luar biasa. Oleh karena itu, pendekatan pembelajaran harus senantiasa dirancang agar bermakna, kontekstual, dan mampu mempersiapkan generasi masa depan yang tidak hanya cerdas secara intelektual, tetapi juga memiliki integritas, empati, serta ketangguhan mental dalam menghadapi tantangan zaman.</p>
             </div>
 
-            <!-- Konten Menu PID -->
+            <!-- Konten Menu PID (Responsif Otomatis Laptop & HP) -->
             <div id="pid" class="tab-content" role="tabpanel">
-                <h2>KUMPULAN LINK PEMBELAJARAN MENGGUNAKAN PAPAN INTERAKTIF DIGITAL (PID)</h2>
-                <p>Belajar Lebih Interaktif, Menyenangkan, dan Bermakna!:</p>
+                <h2>Game & Media Pembelajaran Interaktif (PID)</h2>
+                <p>Silakan pilih tautan permainan edukatif dan interaktif di bawah ini:</p>
                 
-                <div class="grid-container">
-                         
-                      <div class="article-card" style="grid-column: 1 / -1;">
-    <div>
-        <h4><i class="fa-solid fa-gamepad"></i> Daftar Game & Media Interaktif PID</h4>
-        <p>Pilih tautan permainan edukatif dan interaktif di bawah ini:</p>
-    </div>
-    
-    <!-- Bagian tombol yang sudah disesuaikan agar responsif di HP & Laptop -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-top: 15px;">
-        <a href="http://s.id/ifpmtk1" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> DUEL PIPIT MATEMATIKA 1</a>
-        <a href="http://s.id/ifpmtk2" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> DUEL PIPIT MATEMATIKA 2</a>
-        <a href="http://s.id/ifphewan" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> SANG JUARA RIMBA</a>
-        <a href="http://s.id/ifppilihsampah" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> PILAH SAMPAH RACE</a>
-        <a href="http://s.id/ifpbina1" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> DUEL PINISI KATA 1</a>
-        <a href="http://s.id/ifpkata" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> DUEL PINISI KATA 2</a>
-        <a href="http://s.id/ifpinggris1" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> ENGLISH MATCH RACE</a>
-        <a href="http://s.id/ifpbalapjukung" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> BALAP JUKUNG</a>
-        <a href="http://s.id/ifpengrang" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> BALAP ENGRANG</a>
-        <a href="http://s.id/ifprakitsoal" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> LOMBA MERAKIT SOAL</a>
-        <a href="http://s.id/ifp3dbangunruang" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> GEO MASTER 3D</a>
-        <a href="http://s.id/ifpkalsel" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> EDUKASI INTERAKTIF</a>
-        <a href="http://s.id/ifpbaurak" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> SMART BORD JIGSAW</a>
-        <a href="http://s.id/guru-pejuang-digital" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> GURU PEJUANG DIGITAL</a>
-        <a href="http://s.id/ttmifp" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> TARIK TAMBANG MATEMATIKA</a>
-        <a href="http://s.id/balapkarungdigital" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 10px 14px; font-size: 13px; text-align: left; justify-content: flex-start;"><i class="fa-solid fa-play" style="color: var(--secondary);"></i> BALAP KARUNG MATEMATIKA</a>
-    </div>
-</div>
-                       
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin-top: 15px;">
+                    <a href="http://s.id/ifpmtk1" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> DUEL PIPIT MATEMATIKA 1</a>
+                    <a href="http://s.id/ifpmtk2" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> DUEL PIPIT MATEMATIKA 2</a>
+                    <a href="http://s.id/ifphewan" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> SANG JUARA RIMBA 1</a>
+                    <a href="http://s.id/ifppilihsampah" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> PILAH SAMPAH RACE</a>
+                    <a href="http://s.id/ifpbina1" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> DUEL PINISI KATA</a>
+                    <a href="http://s.id/ifpkata" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> DUEL PINISI KATA 2</a>
+                    <a href="http://s.id/ifpinggris1" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> ENGLISH MATCH RACE</a>
+                    <a href="http://s.id/ifpbalapjukung" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> BALAP JUKUNG</a>
+                    <a href="http://s.id/ifpengrang" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> BALAP ENGRANG</a>
+                    <a href="http://s.id/ifprakitsoal" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> LOMBA MERAKIT SOAL</a>
+                    <a href="http://s.id/ifp3dbangunruang" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> GEO MASTER 3D</a>
+                    <a href="http://s.id/ifpkalsel" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> EDUKASI INTERAKTIF</a>
+                    <a href="http://s.id/ifpbaurak" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> SMART BORD JIGSAW</a>
+                    <a href="http://s.id/guru-pejuang-digital" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> GURU PEJUANG DIGITAL</a>
+                    <a href="http://s.id/ttmifp" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> TARIK TAMBANG MATEMATIKA</a>
+                    <a href="http://s.id/balapkarungdigital" target="_blank" rel="noopener noreferrer" class="compact-btn"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> BALAP KARUNG MATEMATIKA</a>
+                </div>
+            </div>
+
             <div id="galeri" class="tab-content" role="tabpanel">
                 <h2>Galeri Kegiatan Pendidikan</h2>
                 <p>Dokumentasi aktivitas pembelajaran di sekolah maupun kegiatan luar sekolah yang mendukung dunia pendidikan:</p>
@@ -607,26 +598,25 @@
                     </div>
 
                     <div class="article-card">
-    <div>
-        <h4><i class="fa-solid fa-clipboard-question"></i> Bank Soal</h4>
-        <p>Kumpulan soal latihan, evaluasi harian, dan asesmen untuk menguji pemahaman peserta didik.</p>
-    </div>
-    <div class="card-actions">
-             <a href="https://latihansoalonline.com/sd/kelas1.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 1</a>
-            <a href="https://latihansoalonline.com/sd/kelas2.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 2</a>
-            <a href="https://latihansoalonline.com/sd/kelas3.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 3</a>
-            <a href="https://latihansoalonline.com/sd/kelas4.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 4</a>
-             <a href="https://latihansoalonline.com/sd/kelas5.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 5</a>
-            <a href="https://latihansoalonline.com/sd/kelas6.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 6</a>
-             <a href="https://latihansoalonline.com/smp/kelas7.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 7</a>
-            <a href="https://latihansoalonline.com/smp/kelas8.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 8</a>
-             <a href="https://latihansoalonline.com/smp/kelas9.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 9</a>
-            <a href="https://latihansoalonline.com/sma/kelas10.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 10</a>
-             <a href="https://latihansoalonline.com/sma/kelas11.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 11</a>
-            <a href="https://latihansoalonline.com/sma/kelas12.html" target="_blank" rel="noopener noreferrer" class="compact-btn">kelas 12</a>
-        </a>
-    </div>
-</div>
+                        <div>
+                            <h4><i class="fa-solid fa-clipboard-question"></i> Bank Soal</h4>
+                            <p>Kumpulan soal latihan, evaluasi harian, dan asesmen untuk menguji pemahaman peserta didik.</p>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://latihansoalonline.com/sd/kelas1.html" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 6px 10px;">kelas 1</a>
+                            <a href="https://latihansoalonline.com/sd/kelas2.html" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 6px 10px;">kelas 2</a>
+                            <a href="https://latihansoalonline.com/sd/kelas3.html" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 6px 10px;">kelas 3</a>
+                            <a href="https://latihansoalonline.com/sd/kelas4.html" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 6px 10px;">kelas 4</a>
+                            <a href="https://latihansoalonline.com/sd/kelas5.html" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 6px 10px;">kelas 5</a>
+                            <a href="https://latihansoalonline.com/sd/kelas6.html" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 6px 10px;">kelas 6</a>
+                            <a href="https://latihansoalonline.com/smp/kelas7.html" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 6px 10px;">kelas 7</a>
+                            <a href="https://latihansoalonline.com/smp/kelas8.html" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 6px 10px;">kelas 8</a>
+                            <a href="https://latihansoalonline.com/smp/kelas9.html" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 6px 10px;">kelas 9</a>
+                            <a href="https://latihansoalonline.com/sma/kelas10.html" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 6px 10px;">kelas 10</a>
+                            <a href="https://latihansoalonline.com/sma/kelas11.html" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 6px 10px;">kelas 11</a>
+                            <a href="https://latihansoalonline.com/sma/kelas12.html" target="_blank" rel="noopener noreferrer" class="compact-btn" style="padding: 6px 10px;">kelas 12</a>
+                        </div>
+                    </div>
 
                     <div class="article-card" style="grid-column: 1 / -1;">
                         <div>
@@ -810,16 +800,16 @@
             </div>
         </main>
 
-    <!-- Kotak Dukungan Saweria -->
-    <div style="text-align: center; margin: 30px auto; padding: 25px; background: #f8fafc; border: 1px solid #e2e8f0; border-router: 12px; max-width: 900px; width: 92%;">
-        <h3 style="color: #1e293b; font-size: 18px; margin-bottom: 8px;">Dukung Pengembangan Blog Ini</h3>
-        <p style="color: #64748b; font-size: 14px; margin-bottom: 18px; line-height: 1.5;">
-            Jika catatan materi, perangkat ajar, dan refleksi pendidikan di blog ini bermanfaat untuk Anda, silakan berikan dukungan seikhlasnya.
-        </p>
-        <a href="https://saweria.co/Rusd1" target="_blank" rel="noopener noreferrer" style="background: #0ea5e9; color: white; padding: 10px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 14px; display: inline-block; box-shadow: 0 4px 6px rgba(14, 165, 233, 0.2);">
-            ☕ Traktir / Dukung via Saweria
-        </a>
-    </div>
+        <!-- Kotak Dukungan Saweria -->
+        <div style="text-align: center; margin: 30px auto; padding: 25px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; max-width: 900px; width: 92%;">
+            <h3 style="color: #1e293b; font-size: 18px; margin-bottom: 8px;">Dukung Pengembangan Blog Ini</h3>
+            <p style="color: #64748b; font-size: 14px; margin-bottom: 18px; line-height: 1.5;">
+                Jika catatan materi, perangkat ajar, dan refleksi pendidikan di blog ini bermanfaat untuk Anda, silakan berikan dukungan seikhlasnya.
+            </p>
+            <a href="https://saweria.co/Rusd1" target="_blank" rel="noopener noreferrer" style="background: #0ea5e9; color: white; padding: 10px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 14px; display: inline-block; box-shadow: 0 4px 6px rgba(14, 165, 233, 0.2);">
+                ☕ Traktir / Dukung via Saweria
+            </a>
+        </div>
 
         <footer>
             <p>&copy; 2026 Rusdiyanto, S.Pd. All Rights Reserved. | <a href="privacy.html">Kebijakan Privasi</a></p>
@@ -837,9 +827,14 @@
                 btn.setAttribute('aria-selected', 'false');
             });
 
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-            event.currentTarget.setAttribute('aria-selected', 'true');
+            const targetContent = document.getElementById(tabId);
+            if(targetContent) {
+                targetContent.classList.add('active');
+            }
+            if(event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+                event.currentTarget.setAttribute('aria-selected', 'true');
+            }
         }
 
         function kirimPesanWhatsApp() {

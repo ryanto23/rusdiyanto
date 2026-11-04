@@ -114,6 +114,7 @@
         /* Warna Kustom untuk Setiap Menu */
         .nav-btn.menu-beranda { background: #1e3a8a; } /* Biru Tua */
         .nav-btn.menu-profil { background: #0d9488; } /* Toska */
+        .nav-btn.menu-pid { background: #0891b2; } /* Cyan / Biru Laut untuk PID */
         .nav-btn.menu-galeri { background: #d97706; } /* Jingga / Amber */
         .nav-btn.menu-materi { background: #7c3aed; } /* Ungu */
         .nav-btn.menu-youtube { background: #dc2626; } /* Merah */
@@ -479,10 +480,11 @@
 
     <div class="container">
         <header>
-            <!-- Navigasi Menu Tanpa Refleksi -->
+            <!-- Navigasi Menu dengan PID -->
             <nav class="nav-menu" role="tablist">
                 <button class="nav-btn menu-beranda active" role="tab" aria-selected="true" aria-controls="beranda" onclick="switchTab(event, 'beranda')"><i class="fa-solid fa-house"></i> Beranda</button>
                 <button class="nav-btn menu-profil" role="tab" aria-selected="false" aria-controls="profil" onclick="switchTab(event, 'profil')"><i class="fa-solid fa-user-tie"></i> Profil</button>
+                <button class="nav-btn menu-pid" role="tab" aria-selected="false" aria-controls="pid" onclick="switchTab(event, 'pid')"><i class="fa-solid fa-link"></i> PID</button>
                 <button class="nav-btn menu-galeri" role="tab" aria-selected="false" aria-controls="galeri" onclick="switchTab(event, 'galeri')"><i class="fa-solid fa-images"></i> Galeri</button>
                 <button class="nav-btn menu-materi" role="tab" aria-selected="false" aria-controls="materi-ajar" onclick="switchTab(event, 'materi-ajar')"><i class="fa-solid fa-book-open"></i> Materi</button>
                 <button class="nav-btn menu-youtube" role="tab" aria-selected="false" aria-controls="youtube" onclick="switchTab(event, 'youtube')"><i class="fa-brands fa-youtube"></i> YouTube</button>
@@ -519,6 +521,54 @@
                 <h2>Profil Singkat</h2>
                 <p>Pendidik percaya bahwa mengajar bukan sekadar menularkan ilmu di dalam kelas, melainkan proses hidup untuk menumbuhkan karakter, mengasah nalar kritis, dan menyalakan kecintaan abadi terhadap proses belajar. Dengan pengalaman panjang mendampingi tumbuh kembang peserta didik lintas jenjang, saya berkomitmen penuh untuk menghadirkan ruang kelas yang hangat, inklusif, dan sepenuhnya berpusat pada siswa.</p>
                 <p>Bagi saya, setiap anak adalah individu unik yang membawa potensi luar biasa. Oleh karena itu, pendekatan pembelajaran harus senantiasa dirancang agar bermakna, kontekstual, dan mampu mempersiapkan generasi masa depan yang tidak hanya cerdas secara intelektual, tetapi juga memiliki integritas, empati, serta ketangguhan mental dalam menghadapi tantangan zaman.</p>
+            </div>
+
+            <!-- Konten Menu PID -->
+            <div id="pid" class="tab-content" role="tabpanel">
+                <h2>Menu PID (Kumpulan Tautan & Dokumen)</h2>
+                <p>Berikut adalah kumpulan tautan dan referensi penting yang dapat diakses melalui menu PID:</p>
+                
+                <div class="grid-container">
+                    <div class="article-card">
+                        <div>
+                            <h4><i class="fa-solid fa-link"></i> Link 1</h4>
+                            <p>Keterangan atau deskripsi singkat mengenai isi dari Link 1.</p>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="link-btn"><i class="fa-solid fa-external-link-alt"></i> Kunjungi Link 1</a>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div>
+                            <h4><i class="fa-solid fa-link"></i> Link 2</h4>
+                            <p>Keterangan atau deskripsi singkat mengenai isi dari Link 2.</p>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="link-btn"><i class="fa-solid fa-external-link-alt"></i> Kunjungi Link 2</a>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div>
+                            <h4><i class="fa-solid fa-link"></i> Link 3</h4>
+                            <p>Keterangan atau deskripsi singkat mengenai isi dari Link 3.</p>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="link-btn"><i class="fa-solid fa-external-link-alt"></i> Kunjungi Link 3</a>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div>
+                            <h4><i class="fa-solid fa-link"></i> Link 4</h4>
+                            <p>Keterangan atau deskripsi singkat mengenai isi dari Link 4.</p>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="link-btn"><i class="fa-solid fa-external-link-alt"></i> Kunjungi Link 4</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div id="galeri" class="tab-content" role="tabpanel">
@@ -774,10 +824,8 @@
             </div>
         </main>
 
-        </main>
-
     <!-- Kotak Dukungan Saweria -->
-    <div style="text-align: center; margin: 30px auto; padding: 25px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; max-width: 900px; width: 92%;">
+    <div style="text-align: center; margin: 30px auto; padding: 25px; background: #f8fafc; border: 1px solid #e2e8f0; border-router: 12px; max-width: 900px; width: 92%;">
         <h3 style="color: #1e293b; font-size: 18px; margin-bottom: 8px;">Dukung Pengembangan Blog Ini</h3>
         <p style="color: #64748b; font-size: 14px; margin-bottom: 18px; line-height: 1.5;">
             Jika catatan materi, perangkat ajar, dan refleksi pendidikan di blog ini bermanfaat untuk Anda, silakan berikan dukungan seikhlasnya.
